@@ -1,0 +1,13 @@
+<!--pages/check/check.wxml-->
+<view class="check-container">
+  <van-card
+    tag="平和质 (A型)"
+    desc="阴阳气血调和，以体态适中、面色红润、精力充沛等为主要特征。面色、肤色润泽，头发稠密有光泽，目光有神，鼻色明润，嗅觉通利，唇色红润，不易疲劳，精力充沛，耐受寒热，睡眠良好，胃纳佳，二便正常，舌色淡红，苔薄白，脉和缓有力。"
+    title="总体特征"
+  >
+    <view slot="footer">
+      <van-button size="mini" type="info" bind:tap="detail">详情</van-button>
+    </view>
+  </van-card>
+  
+</view>

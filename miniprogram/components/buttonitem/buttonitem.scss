@@ -1,0 +1,40 @@
+/* components/buttonitem/buttonitem.wxss */
+.svgimg {
+  width: 40vw;
+  height: 130rpx;
+  display: inline-block;
+  margin: 40rpx auto 10rpx;
+}
+
+.text {
+  display: inline-block;
+  width: 100%;
+  font-size: 42rpx;
+  word-break:break-all; //英文
+  white-space:pre-wrap; //中文
+  text-align: center;
+  margin: 0 0 20rpx 0;
+}
+
+.op {
+  width: 40vw;
+  margin: 20rpx 20rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+
+.op1 {
+  background-color: rgb(236, 100, 16);
+}
+
+.op2 {
+  background-color: skyblue;
+}
+
+.op3 {
+  background-color: rgb(10, 165, 10);
+}
+
+.op4 {
+  background-color: tan;
+}

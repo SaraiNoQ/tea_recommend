@@ -1,0 +1,12 @@
+<!--pages/list/list.wxml-->
+<view class="list-container">
+  <van-cell-group>
+    <van-cell title="当前版本" value="V0.00.01" label="当前处于确定需求环节，内容板块仅为演示" />
+    <van-cell title="用户名" value="测试用户" />
+    <van-cell title="账号ID" value="10001" />
+    <van-cell title="手机号码" value="19150930360" />
+  </van-cell-group>
+  <view class="gap">
+    <van-cell title="更多" is-link />
+  </view>
+</view>
