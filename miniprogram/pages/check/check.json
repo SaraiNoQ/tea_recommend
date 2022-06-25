@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "body-cate": "../../components/bodycategory/bodycategory"
+  }
 }

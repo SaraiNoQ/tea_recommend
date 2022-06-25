@@ -6,7 +6,8 @@
     "pages/userinfo/userinfo",
     "pages/question/question",
     "pages/check/check",
-    "pages/book/book"
+    "pages/book/book",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
