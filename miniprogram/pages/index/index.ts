@@ -6,9 +6,37 @@ Page({
   data: {
     radioSex: ''
   },
-  onLoad() {
+  async onLoad() {
+    const res = await wx.cloud.callContainer({
+      config: {
+        env: 'prod-9gpx0wysac930832'
+      },
+      path: '/hello',
+      method: 'GET',
+      header: {
+        "X-WX-SERVICE": "springboot-cxiq"
+      }
+    })
+    console.log(res)
   },
-  navigateToUser() {
+  async navigateToUser() {
+    // 如果已经存在该用户的个人信息，则直接填表
+    // const res = await wx.cloud.callContainer({
+    //   path: '/survey/info',
+    //   method: 'GET',
+    //   header: {
+    //     Authorization: ''
+    //   }
+    // })
+    // if (res.data) {
+    //   wx.navigateTo({
+    //     url: '/pages/question/question'
+    //   })
+    // } else {
+    //   wx.navigateTo({
+    //     url: '/pages/userinfo/userinfo'
+    //   })
+    // }
     wx.navigateTo({
       url: '/pages/userinfo/userinfo'
     })
@@ -33,4 +61,12 @@ Page({
       radioSex: event.detail,
     });
   },
+  // 退出登录
+  // loginOut() {
+  //   this.setData({
+  //     userInfo: ''
+  //   }),
+  //   // 把user缓存存储为空
+  //   wx.setStorageSync('user', '')
+  // },
 })

@@ -7,17 +7,21 @@
     "pages/question/question",
     "pages/check/check",
     "pages/book/book",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/userSettings/userSettings",
+    "pages/userInformation/userInformation",
+    "pages/history/history",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#00b26a",
     "navigationBarTitleText": "老迈思想茶",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "borderStyle": "white",
+    "borderStyle": "black",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
@@ -45,6 +49,13 @@
     "van-empty": "@vant/weapp/empty/index",
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
-    "van-card": "@vant/weapp/card/index"
+    "van-card": "@vant/weapp/card/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   }
 }

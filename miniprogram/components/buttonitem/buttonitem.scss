@@ -1,26 +1,45 @@
 /* components/buttonitem/buttonitem.wxss */
-.svgimg {
-  width: 40vw;
-  height: 130rpx;
-  display: inline-block;
-  margin: 40rpx auto 10rpx;
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -10rpx;
 }
 
 .text {
   display: inline-block;
   width: 100%;
-  font-size: 42rpx;
   word-break:break-all; //英文
   white-space:pre-wrap; //中文
-  text-align: center;
-  margin: 0 0 20rpx 0;
+  margin: 20rpx 0 20rpx 30rpx;
+}
+
+.intro {
+  display: inline-block;
+  margin: -20rpx 0rpx 10rpx 30rpx;
+  max-width: 80%;
+  color: rgb(167, 163, 167);
+  overflow: hidden;
+  white-space:nowrap;
+  font-size: 26rpx !important;
+}
+
+.info-text {
+  color: #333;
+  font-size: 40rpx;
+  font-weight: 600;
+  font-family: Tahoma,Helvetica,Arial,'宋体',sans-serif;
 }
 
 .op {
-  width: 40vw;
-  margin: 20rpx 20rpx;
+  display: block;
+  width: 46vw;
+  margin: 20rpx 0rpx;
   border-radius: 10rpx;
-  color: #fff;
+  background-color: #fff !important;
+  box-shadow: 0 0 12rpx rgba(0, 0, 0, 0.07);
 }
 
 .op1 {

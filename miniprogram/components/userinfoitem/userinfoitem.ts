@@ -29,6 +29,7 @@ Component({
       this.setData({
         radio: event.detail
       })
+      this.triggerEvent('submitRadio', event.detail)
     }
   },
 })

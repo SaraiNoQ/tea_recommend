@@ -13,7 +13,7 @@
       </swiper-item>
       <swiper-item>
         <image
-          src="http://82.157.232.71/images/logo.png"
+          src="http://82.157.232.71/images/logo-p.png"
           class="swipper-image"
           mode="scaleToFill"
         ></image>
@@ -41,10 +41,23 @@
       <image src="../../images/book-atlas-solid.svg" mode="scaleToFill" class="svgimg"></image>
       <text class="text">查看推荐茶叶</text>
     </view> -->
-    <buttonitem color="rgb(236, 100, 16)"  imgurl="../../images/user-solid.svg" info="完善个人信息" bindtap="navigateToUser"/>
-    <buttonitem color="skyblue"  imgurl="../../images/file-pen-solid.svg" info="完成问卷调查" bindtap="navigateToQuestion"/>
-    <buttonitem color="rgb(10, 165, 10)"  imgurl="../../images/magnifying-glass-solid.svg" info="查看个人体质" bindtap="navigateToCheck"/>
-    <buttonitem color="tan"  imgurl="../../images/book-atlas-solid.svg" info="查看推荐茶叶" bindtap="navigateToBook"/>
+    <buttonitem
+      color="填写调查问卷获取推荐"
+      imgurl="http://82.157.232.71/images/table-p.png"
+      other="http://82.157.232.71/images/recom-l.png"
+      info="调查问卷"
+      bindtap="navigateToUser"
+    />
+    <buttonitem
+      color="体质介绍和茶叶信息"
+      other="http://82.157.232.71/images/recom-r.png"
+      imgurl="http://82.157.232.71/images/tea-p.png"
+      info="相关介绍"
+      style="margin-left: 10px;"
+      bindtap="navigateToQuestion"
+    />
+    <!-- <buttonitem color="background-color: #F4D03F; background-image: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);"  imgurl="../../images/magnifying-glass-solid.svg" info="查看个人体质" bindtap="navigateToCheck"/>
+    <buttonitem color="background-color: #74EBD5; background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);"  imgurl="../../images/book-atlas-solid.svg" info="查看推荐茶叶" bindtap="navigateToBook"/> -->
   </view>
 
   <!-- <van-grid column-num="2" class="index-op">

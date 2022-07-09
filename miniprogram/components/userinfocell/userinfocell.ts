@@ -30,4 +30,10 @@ Component({
       })
     }
   },
+
+  lifetimes: {
+
+  },
+
+  observer: {}
 })

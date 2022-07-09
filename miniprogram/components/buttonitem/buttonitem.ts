@@ -15,6 +15,14 @@ Component({
     info: {
       type: String,
       value: 'info'
+    },
+    other: {
+      type: String,
+      value: ''
+    },
+    style: {
+      type: String,
+      value: 'margin-left: 0;'
     }
   },
 
