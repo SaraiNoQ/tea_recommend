@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "userinfo": "../../components/userinfocell/userinfocell"
+    "userinfo": "../../components/userinfocell/userinfocell",
+    "userinput": "../../components/userinfoinput/userinfoinput"
   }
 }

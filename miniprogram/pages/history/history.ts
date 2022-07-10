@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isNull: false,
+    record: [{
+      id: 'record1',
+      time: '2022-07-10'
+    },{
+      id: 'record2',
+      time: '2022-07-10'
+    },{
+      id: 'record3',
+      time: '2022-07-10'
+    }]
   },
 
   /**

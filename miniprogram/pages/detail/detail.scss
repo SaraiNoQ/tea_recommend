@@ -1,8 +1,8 @@
 /* pages/detail/detail.wxss */
 .head {
-  margin: 20rpx 20rpx 0 20rpx;
+  margin: 20rpx 0rpx 0 0rpx;
   padding-bottom: 40rpx;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px solid #ccc;
 
   .title {
     margin: 40rpx 0;
@@ -18,7 +18,7 @@
 .content {
   display: flex;
   align-items: center;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px solid #ccc;
 
   .label {
     display: inline-block;
@@ -34,7 +34,11 @@
     padding: 30rpx 10rpx 20rpx 0;
     width: calc(100% - 180rpx);
     font-size: 34rpx;
-    border-left: 1px dashed #ccc;
+    border-left: 1px solid #ccc;
     padding-left: 20rpx;
   }
+}
+
+.detail-container {
+  padding-bottom: 80rpx;
 }

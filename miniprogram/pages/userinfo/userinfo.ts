@@ -139,6 +139,7 @@ Page({
     }
     // 当height和weight全部为数组时，且没有未填项时，才能提交表单
     if (Number.isFinite(parseInt(this.data.height)) && Number.isFinite(parseInt(this.data.weight))) {
+      this.saveToGlobal()
       wx.navigateTo({
         url: '/pages/question/question'
       })
@@ -154,5 +155,10 @@ Page({
       })
     }, 1000)
     Toast.success('提交成功!');
+  },
+
+  saveToGlobal () {
+    const dataStr = JSON.stringify(this.data)
+    wx.setStorageSync('infoData', dataStr)
   }
 })

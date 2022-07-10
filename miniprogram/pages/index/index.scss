@@ -2,9 +2,18 @@
 .container1 {
   height: 100vh;
   background-color: rgb(247,248,250);
+  padding-top: 20rpx;
+
+  .message {
+    margin: 5rpx 20rpx 0 20rpx;
+    border-radius: 6rpx;
+  }
+
   .project-info {
     height: 400rpx;
-    margin: 10rpx 10rpx 20rpx 10rpx;
+    margin: 0rpx 20rpx 20rpx 20rpx;
+    box-shadow: 0 8rpx 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12rpx;
 
     .swiper-container {
       height: 100%;
@@ -12,7 +21,7 @@
       .swipper-image {
         width: 100%;
         height: 100%;
-        border-radius: 12px !important;
+        border-radius: 12rpx;
       }
 
       .swiper-item {
@@ -49,7 +58,6 @@
     .op {
       width: 40%;
       margin: 20rpx 20rpx;
-      border-radius: 10rpx;
       color: #fff;
     }
 

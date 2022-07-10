@@ -5,14 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bodyType: '',
+    body: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad(options: any) {
+    this.setData({
+      bodyType: JSON.parse(options.bodyType_id),
+      body: JSON.parse(options.body) + '体质茶叶推荐'
+    })
+    console.log('detail', this.data.body)
   },
 
   /**

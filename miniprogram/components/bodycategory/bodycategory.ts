@@ -11,6 +11,10 @@ Component({
     desc: {
       type: String,
       value: ''
+    },
+    bodytype: {
+      type: String,
+      value: ''
     }
   },
 
@@ -27,7 +31,7 @@ Component({
   methods: {
     navigateToDetail() {
       wx.navigateTo({
-        url: '/pages/detail/detail'
+        url: '/pages/detail/detail?bodyType_id=' + JSON.stringify(this.data.bodytype) + '&body=' + JSON.stringify(this.data.tag) 
       })
     }
   }

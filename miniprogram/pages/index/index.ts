@@ -4,7 +4,8 @@ const app = getApp<IAppOption>()
 
 Page({
   data: {
-    radioSex: ''
+    radioSex: '',
+    message: '本项目旨在通过问卷的形式给你推荐一款适合您的茶叶！'
   },
   async onLoad() {
     const res = await wx.cloud.callContainer({

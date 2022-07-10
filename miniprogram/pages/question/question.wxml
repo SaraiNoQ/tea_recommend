@@ -6,7 +6,7 @@
   </view>
 
   <block>
-    <userinfo title="1.您精力充沛吗？(指精神头足，乐于做事)" />
+    <!-- <userinfo title="1.您精力充沛吗？(指精神头足，乐于做事)" bind:submitValue="getValue" />
     <userinfo title="2.您容易疲乏吗？(指体力如何，是否稍微活动一下或做一点家务劳动就感到累)" />
     <userinfo title="3.您容易气短，呼吸短促，接不上气吗？" />
     <userinfo title="4.您说话声音低弱无力吗？(指说话没有力气)" />
@@ -14,11 +14,30 @@
     <userinfo title="6.您容易精神紧张、焦虑不安吗？(指遇事是否心情紧张)	" />
     <userinfo title="7.您因为生活状态改变而感到孤独、失落吗？" />
     <userinfo title="8.您容易感到害怕或受到惊吓吗？" />
-    <userinfo title="9.您感到身体超重不轻松吗？(感觉身体沉重)[BMI指数=体重(kg)/身高2(m)]" data="{{['BMI<24', '24<BMI<25', '25<BMI<26', '26<BMI<28', 'BMI>28']}}" />
-    <userinfo title="10.您眼睛干涩吗？" />
+    <userinfo title="9.您感到身体超重不轻松吗？(感觉身体沉重)[BMI指数=体重(kg)/身高2(m)]" data="{{['BMI<24', '24<BMI<25', '25<BMI<26', '26<BMI<28', 'BMI>28']}}" /> -->
+    <view
+      wx:for="{{questions}}"
+      wx:for-index="index"
+      wx:for-item="item"
+      wx:key="index"
+     >
+      <userinfo
+        wx:if="{{item.type === 0}}"
+        title="{{item.description}}"
+        data="{{item.options}}"
+        idx="{{item.id}}"
+        type="{{item.type}}"
+        bind:submitValue="getValue"
+      />
+      <userinput
+        wx:elif="{{item.type === 3}}"
+        title="{{item.description}}"
+      />
+     </view>
+    
   </block>
 
   <view class="submit">
-    <van-button type="info" class="button" block>提交</van-button>
+    <van-button type="info" class="button" block bindtap="submitQuestion">提交</van-button>
   </view>
 </view>

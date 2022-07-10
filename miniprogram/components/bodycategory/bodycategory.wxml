@@ -8,7 +8,6 @@
     <van-button
       size="mini"
       type="info"
-      bind:tap="detail"
       bind:tap="navigateToDetail"
     >详情</van-button>
   </view>

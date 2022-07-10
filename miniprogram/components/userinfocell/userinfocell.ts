@@ -9,7 +9,30 @@ Component({
     },
     data: {
       type: Array,
-      value: ['没有（根本不）', '很少（有一点）', '有时（有些）', '经常（相当）', '总是（非常）']
+      value: [{
+        id: '1',
+        description: '没有(根本不/从来没有)',
+      }, {
+        id: '2',
+        description: '很少(有一点/偶尔)',
+      }, {
+        id: '3',
+        description: '有时(有些/少数时间)',
+      },{
+          id: '4',
+          description: '经常(相当多数时间)',
+      },{
+          id: '5',
+          description: '总是(非常每天)',
+      }]
+    },
+    idx: {
+      type: String,
+      value: ''
+    },
+    type: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -28,6 +51,7 @@ Component({
       this.setData({
         radio: event.detail
       })
+      this.triggerEvent('submitValue', {id: this.data.idx, type: this.data.type, event: event})
     }
   },
 

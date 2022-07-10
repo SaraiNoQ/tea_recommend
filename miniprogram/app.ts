@@ -1,6 +1,7 @@
 // app.ts
 App<IAppOption>({
-  globalData: {},
+  globalData: {
+  },
   onLaunch() {
     // 使用云托管
     if (!wx.cloud) {
