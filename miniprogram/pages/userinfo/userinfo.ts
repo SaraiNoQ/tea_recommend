@@ -21,7 +21,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    wx.cloud.callContainer({
+      path: '/api/survey/info',
+      method: 'GET',
+      header: {
+        "X-WX-SERVICE": "springboot-cxiq",
+        "content-type": "application/json",
+        "Authorization": wx.getStorageSync('token')
+      },
+      success: res => {
+        const resData: {professional: string, teaAge: number, weight: number, height: number, favoriteTea: string, lifeIn: string, growthIn: string} = res.data.data
+        try {
+          const age = JSON.parse(wx.getStorageSync('infoData')).age
+          const radio =  JSON.parse(wx.getStorageSync('infoData')).radio
+          this.setData({
+            age: age,
+            radio: radio
+          })
+        } catch (error) {
+          console.log(error)
+        } finally {
+          this.setData({
+            professional: resData.professional,
+            teaAge: resData.teaAge,
+            weight: resData.weight,
+            height: resData.height,
+            favoriteTea: resData.favoriteTea,
+            lifeIn: resData.lifeIn,
+            growthIn: resData.growthIn
+          })
+        }
+        console.log('res', resData)
+      },
+      fail: err => {
+        console.log('er', err)
+      }
+    })
   },
 
   /**
@@ -75,7 +110,46 @@ Page({
 
   submitUserInfo () {
     this.validateValue()
+    console.log(this.data)
   },
+
+  // setValueBeforeSubmit () {
+  //   if (this.data.professional === '') {
+  //     this.setData({
+  //       professional: this.data.historyData.professional || ''
+  //     })
+  //   }
+  //   if (this.data.teaAge === -1) {
+  //     this.setData({
+  //       teaAge: this.data.historyData.teaAge || -1
+  //     })
+  //   }
+  //   if (this.data.height === -1) {
+  //     this.setData({
+  //       height: this.data.historyData.height || -1
+  //     })
+  //   }
+  //   if (this.data.weight === -1) {
+  //     this.setData({
+  //       weight: this.data.historyData.weight || -1
+  //     })
+  //   }
+  //   if (this.data.favoriteTea === '') {
+  //     this.setData({
+  //       favoriteTea: this.data.historyData.favoriteTea || ''
+  //     })
+  //   }
+  //   if (this.data.lifeIn === '') {
+  //     this.setData({
+  //       lifeIn: this.data.historyData.lifeIn || ''
+  //     })
+  //   }
+  //   if (this.data.growthIn === '') {
+  //     this.setData({
+  //       growthIn: this.data.historyData.growthIn || ''
+  //     })
+  //   }
+  // },
 
   getInputValue (e: any) {
     this.setData({
