@@ -112,44 +112,6 @@ Page({
     console.log(this.data)
   },
 
-  // setValueBeforeSubmit () {
-  //   if (this.data.professional === '') {
-  //     this.setData({
-  //       professional: this.data.historyData.professional || ''
-  //     })
-  //   }
-  //   if (this.data.teaAge === -1) {
-  //     this.setData({
-  //       teaAge: this.data.historyData.teaAge || -1
-  //     })
-  //   }
-  //   if (this.data.height === -1) {
-  //     this.setData({
-  //       height: this.data.historyData.height || -1
-  //     })
-  //   }
-  //   if (this.data.weight === -1) {
-  //     this.setData({
-  //       weight: this.data.historyData.weight || -1
-  //     })
-  //   }
-  //   if (this.data.favoriteTea === '') {
-  //     this.setData({
-  //       favoriteTea: this.data.historyData.favoriteTea || ''
-  //     })
-  //   }
-  //   if (this.data.lifeIn === '') {
-  //     this.setData({
-  //       lifeIn: this.data.historyData.lifeIn || ''
-  //     })
-  //   }
-  //   if (this.data.growthIn === '') {
-  //     this.setData({
-  //       growthIn: this.data.historyData.growthIn || ''
-  //     })
-  //   }
-  // },
-
   getInputValue (e: any) {
     this.setData({
       age: e.detail
@@ -166,16 +128,25 @@ Page({
     })
   },
   getTeaageValue (e: any) {
+    if (e.detail === '') {
+      return
+    }
     this.setData({
       teaAge: parseInt(e.detail)
     })
   },
   getHeightValue (e: any) {
+    if (e.detail === '') {
+      return
+    }
     this.setData({
       height: parseInt(e.detail)
     })
   },
   getWeightValue (e: any) {
+    if (e.detail === '') {
+      return
+    }
     this.setData({
       weight: parseInt(e.detail)
     })
