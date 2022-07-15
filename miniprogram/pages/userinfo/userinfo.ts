@@ -8,10 +8,10 @@ Page({
   data: {
     age: '',
     radio: '',
-    profession: '',
-    teaAge: '',
-    height: '',
-    weight: '',
+    professional: '',
+    teaAge: -1,
+    height: -1,
+    weight: -1,
     growthIn: '',
     lifeIn: '',
     favoriteTea: ''
@@ -89,22 +89,22 @@ Page({
   },
   getProfessionValue (e: any) {
     this.setData({
-      profession: e.detail
+      professional: e.detail
     })
   },
   getTeaageValue (e: any) {
     this.setData({
-      teaAge: e.detail
+      teaAge: parseInt(e.detail)
     })
   },
   getHeightValue (e: any) {
     this.setData({
-      height: e.detail
+      height: parseInt(e.detail)
     })
   },
   getWeightValue (e: any) {
     this.setData({
-      weight: e.detail
+      weight: parseInt(e.detail)
     })
   },
   getGrowthValue (e: any) {
@@ -128,17 +128,15 @@ Page({
     || this.data.favoriteTea === ''
     || this.data.growthIn === ''
     || this.data.lifeIn === ''
-    || this.data.height === ''
-    || this.data.weight === ''
     || this.data.radio === ''
     || this.data.lifeIn === ''
-    || this.data.profession === ''
+    || this.data.professional === ''
     ) {
       Toast.fail('表单不完整！')
       return
     }
     // 当height和weight全部为数组时，且没有未填项时，才能提交表单
-    if (Number.isFinite(parseInt(this.data.height)) && Number.isFinite(parseInt(this.data.weight))) {
+    if (Number.isFinite(this.data.height) && Number.isFinite(this.data.weight)) {
       this.saveToGlobal()
       wx.navigateTo({
         url: '/pages/question/question'
