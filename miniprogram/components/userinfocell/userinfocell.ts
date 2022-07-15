@@ -51,9 +51,11 @@ Component({
    */
   methods: {
     onChange: function(event: any) {
+      // @ts-ignore
       this.setData({
         radio: event.detail
       })
+      // @ts-ignore
       this.triggerEvent('submitValue', {id: this.data.idx, type: this.data.type, event: event})
     }
   },

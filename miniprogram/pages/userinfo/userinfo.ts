@@ -51,7 +51,6 @@ Page({
             growthIn: resData.growthIn
           })
         }
-        console.log('res', resData)
       },
       fail: err => {
         console.log('er', err)

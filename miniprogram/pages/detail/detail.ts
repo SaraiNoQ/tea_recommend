@@ -1,4 +1,17 @@
 // pages/detail/detail.ts
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+interface TeaData {
+  afternoonTea:   string;
+  autumnTea:      string;
+  bodyTypeId:     string;
+  drinkingAdvice: string;
+  evenTea:        string;
+  morningTea:     string;
+  specialTea:     string;
+  springTea:      string;
+  summerTea:      string;
+  winterTea:      string;
+}
 Page({
 
   /**
@@ -7,17 +20,55 @@ Page({
   data: {
     bodyType: '',
     body: '',
+    teaData: {
+      afternoonTea:   '',
+      autumnTea:      '',
+      bodyTypeId:     '',
+      drinkingAdvice: '',
+      evenTea:        '',
+      morningTea:     '',
+      specialTea:     '',
+      springTea:      '',
+      summerTea:      '',
+      winterTea:      '',
+    },
+    loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options: any) {
+  async onLoad(options: any) {
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
     this.setData({
       bodyType: JSON.parse(options.bodyType_id),
       body: JSON.parse(options.body) + '体质茶叶推荐'
     })
-    console.log('detail', this.data.body, this.data.bodyType)
+    try {
+      const res = await wx.cloud.callContainer({
+        path: '/api/teaRecommend?bodyType_id=' + this.data.bodyType,
+        method: 'GET',
+        header: {
+          "X-WX-SERVICE": "springboot-cxiq",
+        }
+      })
+      if (res.statusCode === 200) {
+        const resData: TeaData = res.data.data
+        this.setData({
+          teaData: resData
+        })
+        console.log(this.data.teaData)
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      this.setData({
+        loading: false
+      })
+    }
   },
 
   /**
