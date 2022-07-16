@@ -30,7 +30,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options: {bodyArr: string}) {
-    console.log('rec options', JSON.parse(options.bodyArr))
     const arr: Array<{id: String, name: String, result: Number}> = JSON.parse(options.bodyArr)
     const arr_com: any = []
     const arr_rel: any = []
@@ -110,7 +109,12 @@ Page({
       bodytype: e.target.dataset.item.id
     }
     wx.navigateTo({
-      url: '/pages/detail/detail?bodyType_id=' + JSON.stringify(event.bodytype) + '&body=' + JSON.stringify(event.name) 
+      url: '/pages/detail/detail?bodyType_id=' + event.bodytype + '&body=' + event.name
+    })
+  },
+  clickToIndex () {
+    wx.reLaunch({
+      url: '/pages/index/index'
     })
   }
 })

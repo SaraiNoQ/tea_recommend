@@ -7,7 +7,7 @@ Page({
    */
   data: {
     age: '',
-    radio: '',
+    radio: 0,
     professional: '',
     teaAge: -1,
     height: -1,
@@ -168,11 +168,10 @@ Page({
   },
 
   validateValue () {
-    if (this.data.age === ''
-    || this.data.favoriteTea === ''
+    if (this.data.favoriteTea === ''
     || this.data.growthIn === ''
     || this.data.lifeIn === ''
-    || this.data.radio === ''
+    || this.data.age === ''
     || this.data.lifeIn === ''
     || this.data.professional === ''
     ) {

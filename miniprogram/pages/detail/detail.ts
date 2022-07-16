@@ -60,7 +60,6 @@ Page({
         this.setData({
           teaData: resData
         })
-        console.log(this.data.teaData)
       }
     } catch (error) {
       console.log(error)

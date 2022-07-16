@@ -147,8 +147,9 @@ Page({
 
   clickToBody (event: any) {
     const clickItem = event.target.dataset.event
+    console.log(clickItem)
     wx.navigateTo({
-      url: '/pages/detail/detail?bodyType=' + clickItem.id + '&body=' + clickItem.name
+      url: '/pages/detail/detail?bodyType_id=' + clickItem.bodyTypeId + '&body=' + clickItem.name
     })
   }
 })

@@ -8,7 +8,6 @@
     "pages/check/check",
     "pages/book/book",
     "pages/detail/detail",
-    "pages/userSettings/userSettings",
     "pages/userInformation/userInformation",
     "pages/history/history",
     "pages/feedback/feedback",
