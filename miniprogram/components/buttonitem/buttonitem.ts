@@ -23,6 +23,22 @@ Component({
     style: {
       type: String,
       value: 'margin-left: 0;'
+    },
+    lheight: {
+      type: Number,
+      value: 40
+    },
+    lwidth: {
+      type: Number,
+      value: 40
+    },
+    rheight: {
+      type: Number,
+      value: 40
+    },
+    rwidth: {
+      type: Number,
+      value: 40
     }
   },
 

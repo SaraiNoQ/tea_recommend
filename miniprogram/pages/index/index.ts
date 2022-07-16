@@ -7,17 +7,6 @@ Page({
     message: '本项目旨在通过问卷的形式给你推荐一款适合您的茶叶！'
   },
   async onLoad() {
-    const res = await wx.cloud.callContainer({
-      config: {
-        env: 'prod-9gpx0wysac930832'
-      },
-      path: '/hello',
-      method: 'GET',
-      header: {
-        "X-WX-SERVICE": "springboot-cxiq"
-      }
-    })
-    console.log(res)
   },
   async navigateToUser() {
     // 如果已经存在该用户的个人信息，则直接填表
@@ -44,9 +33,12 @@ Page({
       url: '/pages/userinfo/userinfo'
     })
   },
-  navigateToQuestion() {
+  navigateToFeedback () {
+    if (!this.validateLoginStatus()) {
+      return
+    }
     wx.navigateTo({
-      url: '/pages/question/question'
+      url: '/pages/feedback/feedback'
     })
   },
   navigateToCheck() {
@@ -54,9 +46,12 @@ Page({
       url: '/pages/check/check'
     })
   },
-  navigateToBook() {
+  navigateToHistory () {
+    if (!this.validateLoginStatus()) {
+      return
+    }
     wx.navigateTo({
-      url: '/pages/book/book'
+      url: '/pages/history/history'
     })
   },
   onChangeSex(event: any) {
@@ -76,12 +71,4 @@ Page({
     }
     return true
   }
-  // 退出登录
-  // loginOut() {
-  //   this.setData({
-  //     userInfo: ''
-  //   }),
-  //   // 把user缓存存储为空
-  //   wx.setStorageSync('user', '')
-  // },
 })
