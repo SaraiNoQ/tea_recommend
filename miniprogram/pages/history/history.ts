@@ -1,4 +1,5 @@
 // pages/history/history.ts
+import dayjs from '../../miniprogram_npm/dayjs/index'
 Page({
 
   /**
@@ -35,9 +36,14 @@ Page({
         }
       })
       if (res.statusCode === 200) {
-        const resData = res.data
+        const resData: Array<{id: string; createTime: string}> = res.data
+        const arr: Array<{id: string; createTime: string}> = []
+        resData.forEach((e: {id: string; createTime: string}) => {
+          e.createTime = dayjs(e.createTime).add(8, 'hour').format('YYYY-MM-DD HH:mm:ss')
+          arr.push(e)
+        })
         this.setData({
-          record: resData
+          record: arr
         })
       }
     } catch (error) {
