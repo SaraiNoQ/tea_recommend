@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isNull: false,
+    isNull: true,
     record: [{
       id: 'record1',
       createTime: '2022-07-10'
@@ -21,24 +21,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    wx.cloud.callContainer({
-      path: '/api/history/simple',
-      method: 'POST',
-      header: {
-        "X-WX-SERVICE": "springboot-cxiq",
-        "Authorization": wx.getStorageSync('token')
-      },
-      success: res => {
+  async onLoad() {
+    this.setData({
+      isNull: true
+    })
+    try {
+      const res = await wx.cloud.callContainer({
+        path: '/api/history/simple',
+        method: 'POST',
+        header: {
+          "X-WX-SERVICE": "springboot-cxiq",
+          "Authorization": wx.getStorageSync('token')
+        }
+      })
+      if (res.statusCode === 200) {
         const resData = res.data
         this.setData({
           record: resData
         })
-      },
-      fail: err => {
-        console.log(err)
       }
-    })
+    } catch (error) {
+      console.log(error)
+    } finally {
+      this.setData({
+        isNull: false
+      })
+    }
   },
 
   /**
@@ -72,8 +80,27 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {
-
+  async onPullDownRefresh() {
+    try {
+      const res = await wx.cloud.callContainer({
+        path: '/api/history/simple',
+        method: 'POST',
+        header: {
+          "X-WX-SERVICE": "springboot-cxiq",
+          "Authorization": wx.getStorageSync('token')
+        }
+      })
+      if (res.statusCode === 200) {
+        const resData = res.data
+        this.setData({
+          record: resData
+        })
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      wx.stopPullDownRefresh()
+    }
   },
 
   /**

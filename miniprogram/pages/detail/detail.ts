@@ -44,8 +44,8 @@ Page({
       forbidClick: true,
     });
     this.setData({
-      bodyType: JSON.parse(options.bodyType_id),
-      body: JSON.parse(options.body) + '体质茶叶推荐'
+      bodyType: options.bodyType_id,
+      body: options.body + '体质茶叶推荐'
     })
     try {
       const res = await wx.cloud.callContainer({

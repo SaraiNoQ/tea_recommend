@@ -61,29 +61,24 @@ Page({
       })
       if (res.statusCode === 200) {
         const resData: {info: any, problem: any, bodyTypes: any} = res.data
+        console.log(resData.bodyTypes)
         resData.bodyTypes.forEach((e: any) => {
           if (e.result === '1') {
             e.name = e.name.replace(/[ ]/g, '')
-            if (this.data.rel === '') {
-              this.setData({
-                rel: e.name
-              })
-            } else {
-              this.setData({
-                rel: this.data.rel + '、' + e.name
-              })
-            }
+            const arr = this.data.relArr
+            // @ts-ignore
+            arr.push(e)
+            this.setData({
+              relArr: arr
+            })
           } else if (e.result === '2') {
             e.name = e.name.replace(/[ ]/g, '')
-            if (this.data.rec === '') {
-              this.setData({
-                rec: e.name
-              })
-            } else {
-              this.setData({
-                rec: this.data.rec + '、' + e.name
-              })
-            }
+            const arr = this.data.recArr
+            // @ts-ignore
+            arr.push(e)
+            this.setData({
+              recArr: arr
+            })
           }
         })
         this.setData({
@@ -148,5 +143,12 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  clickToBody (event: any) {
+    const clickItem = event.target.dataset.event
+    wx.navigateTo({
+      url: '/pages/detail/detail?bodyType=' + clickItem.id + '&body=' + clickItem.name
+    })
   }
 })

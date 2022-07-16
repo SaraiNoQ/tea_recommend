@@ -66,3 +66,23 @@
 .body-info {
   border-bottom: 1px dashed #ccc;
 }
+
+.body-tag {
+  margin: 30rpx 0 0rpx 55rpx;
+  .title {
+    display: block;
+    font-size: 38rpx;
+    margin-bottom: 15rpx;
+  }
+
+  .tag-cal {
+    margin: 5rpx 25rpx 20rpx 0;
+  }
+
+  .no {
+    display: inline-block;
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    color: rgb(147, 144, 144);
+  }
+}

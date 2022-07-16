@@ -63,6 +63,7 @@ Page({
       userAvatar: wx.getStorageSync('userAvatar'),
       userName: wx.getStorageSync('userName')
     })
+    wx.stopPullDownRefresh()
   },
 
   /**

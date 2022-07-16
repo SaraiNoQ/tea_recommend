@@ -8,8 +8,40 @@
       <text class="head">历史记录</text>
     </view>
     <view class="body-info">
-      <userinput value="{{rec}}" title="1.倾向体质？" disable="{{true}}" />
-      <userinput value="{{rel}}" title="2.相关体质？" disable="{{true}}" />
+      <view class="body-tag">
+        <text class="title">1.倾向体质</text>
+        <van-tag
+          wx:if="{{relArr.length > 0}}"
+          type="danger"
+          size="large"
+          wx:for="{{recArr}}"
+          wx:for-index="index"
+          wx:for-item="item"
+          wx:key="index"
+          data-event="{{item}}"
+          bindtap="clickToBody"
+          custom-class="tag-cal"
+        >{{item.name}}</van-tag>
+        <text class="no" wx:if="{{relArr.length === 0}}">暂无记录</text>
+      </view>
+      
+      <view class="body-tag">
+        <text class="title">2.相关体质</text>
+        <van-tag
+          wx:if="{{relArr.length > 0}}"
+          type="primary"
+          size="large"
+          wx:for="{{relArr}}"
+          wx:for-index="index"
+          wx:for-item="item"
+          wx:key="index"
+          data-event="{{item}}"
+          bindtap="clickToBody"
+          custom-class="tag-cal"
+        >{{item.name}}</van-tag>
+        <text class="no" wx:if="{{relArr.length === 0}}">暂无记录</text>
+      </view>
+
       <userinput value="{{sourceData.professional}}" title="3.您的职业？" message="请填写您的职业" disable="{{true}}" />
       <userinput value="{{sourceData.teaAge}}" title="4.您的茶龄？" message="请填写您的茶龄" disable="{{true}}" />
       <userinput value="{{sourceData.height}}" title="5.您的身高(厘米)？" message="请填写您的身高" disable="{{true}}" />

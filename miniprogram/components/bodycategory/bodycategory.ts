@@ -31,7 +31,7 @@ Component({
   methods: {
     navigateToDetail() {
       wx.navigateTo({
-        url: '/pages/detail/detail?bodyType_id=' + JSON.stringify(this.data.bodytype) + '&body=' + JSON.stringify(this.data.tag) 
+        url: '/pages/detail/detail?bodyType_id=' + this.data.bodytype + '&body=' + this.data.tag
       })
     }
   }
