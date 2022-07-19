@@ -153,7 +153,16 @@ Page({
     })
   },
 
-  check_authSetting_userLocation(){
+  check_authSetting_userLocation() {
+    // App.json中配置
+    // "permission": {
+    //   "scope.userLocation": {
+    //     "desc": "我们需要获取您的位置信息来给您提供更精确的推荐"
+    //   }
+    // },
+    // "requiredPrivateInfos": [
+    //   "getLocation"
+    // ],
     const _this = this;
     wx.getSetting({
       success (res) {
