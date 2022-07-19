@@ -21,6 +21,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
     wx.cloud.callContainer({
       path: '/api/survey/info',
       method: 'GET',
@@ -30,6 +43,13 @@ Page({
         "Authorization": wx.getStorageSync('token')
       },
       success: res => {
+        if (res.data.code === 0) {
+          // token过期
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+          return
+        }
         const resData: {professional: string, teaAge: number, weight: number, height: number, favoriteTea: string, lifeIn: string, growthIn: string} = res.data.data
         try {
           const age = JSON.parse(wx.getStorageSync('infoData')).age
@@ -56,20 +76,6 @@ Page({
         console.log('er', err)
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
   },
 
   /**

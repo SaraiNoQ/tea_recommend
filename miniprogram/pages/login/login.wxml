@@ -1,5 +1,6 @@
 <!--pages/login/login.wxml-->
 <view class="login-container">
+  <van-toast id="van-toast" wx:if="{{loading}}"></van-toast>
   <view class="login-btn">
     <van-button
       type="primary"

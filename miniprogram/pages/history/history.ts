@@ -7,52 +7,16 @@ Page({
    */
   data: {
     isNull: true,
-    record: [{
-      id: 'record1',
-      createTime: '2022-07-10'
-    },{
-      id: 'record2',
-      createTime: '2022-07-10'
-    },{
-      id: 'record3',
-      createTime: '2022-07-10'
-    }]
+    record: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad() {
+  onLoad() {
     this.setData({
       isNull: true
     })
-    try {
-      const res = await wx.cloud.callContainer({
-        path: '/api/history/simple',
-        method: 'POST',
-        header: {
-          "X-WX-SERVICE": "springboot-cxiq",
-          "Authorization": wx.getStorageSync('token')
-        }
-      })
-      if (res.statusCode === 200) {
-        const resData: Array<{id: string; createTime: string}> = res.data
-        const arr: Array<{id: string; createTime: string}> = []
-        resData.forEach((e: {id: string; createTime: string}) => {
-          e.createTime = dayjs(e.createTime).add(8, 'hour').format('YYYY-MM-DD HH:mm:ss')
-          arr.push(e)
-        })
-        this.setData({
-          record: arr
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      this.setData({
-        isNull: false
-      })
-    }
   },
 
   /**
@@ -65,8 +29,43 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  async onShow() {
+    try {
+      const res = await wx.cloud.callContainer({
+        path: '/api/history/simple',
+        method: 'POST',
+        header: {
+          "X-WX-SERVICE": "springboot-cxiq",
+          "Authorization": wx.getStorageSync('token')
+        }
+      })
+      console.log('status code', res)
+      if (res.statusCode === 200) {
+        if (res.data.code != null) {
+          // token过期
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+        } else {
+          const resData: Array<{id: string; createTime: string}> = res.data
+          const arr: Array<{id: string; createTime: string}> = []
+          resData.forEach((e: {id: string; createTime: string}) => {
+            e.createTime = dayjs(e.createTime).add(8, 'hour').format('YYYY-MM-DD HH:mm:ss')
+            arr.push(e)
+          })
+          this.setData({
+            // @ts-ignore
+            record: arr
+          })
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      this.setData({
+        isNull: false
+      })
+    }
   },
 
   /**

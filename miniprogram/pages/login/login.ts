@@ -1,11 +1,13 @@
 // pages/login/login.ts
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loading: false
   },
 
   /**
@@ -65,10 +67,19 @@ Page({
   },
 
   clickToLogin () {
+    const _this = this
     wx.getUserProfile({
       desc: '注册，登录小程序',
       success: res => {
         if (res.userInfo) {
+          // 启动加载动画
+          _this.setData({
+            loading: true
+          })
+          Toast.loading({
+            message: '加载中...',
+            forbidClick: true,
+          });
           /* wx.login 调用接口获取登录凭证（code）。通过凭证进而换取用户登录态信息，包括用户在当前小程序的唯一标识（openid）、微信开放平台帐号下的唯一标识（unionid，若当前小程序已绑定到微信开放平台帐号）及本次登录的会话密钥（session_key）*/
           wx.login({
             success: ret => {
@@ -93,17 +104,43 @@ Page({
                 },
                 // 数据返回
                 success (resp) {
-                  console.log('login resp', resp.data);
                   // 将用户id储存于本地
                   wx.setStorageSync('token', resp.data.data.token);
                   // 将用户微信信息设置成小程序信息
                   wx.setStorageSync('userName', res.userInfo.nickName)
                   wx.setStorageSync('userAvatar', res.userInfo.avatarUrl)
-                  // 重启动个人中心
-                  wx.reLaunch({
-                    url: '/pages/list/list'
+                  
+                  // 关闭加载动画
+                  _this.setData({
+                    loading: false
+                  })
+
+                  // token为空，直接在首页就被拦截
+                  if (getCurrentPages().length === 1) {
+                    // 重启动个人中心
+                    wx.reLaunch({
+                      url: '/pages/list/list'
+                    })
+                  } else { // token过期，在功能页被拦截
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }
+                },
+                fail: err => {
+                  console.log('back login error!', err)
+                  // 关闭加载动画
+                  _this.setData({
+                    loading: false
                   })
                 }
+              })
+            },
+            fail: err => {
+              console.log('wx login error!', err)
+              // 关闭加载动画
+              _this.setData({
+                loading: false
               })
             }
           })

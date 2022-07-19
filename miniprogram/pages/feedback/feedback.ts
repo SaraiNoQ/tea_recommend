@@ -69,7 +69,6 @@ Page({
   },
 
   async submitFeedback () {
-    console.log(this.data)
     if (this.data.describe === '' || this.data.title === '') {
       Toast.fail('请输入要反馈的内容！');
       return
