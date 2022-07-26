@@ -11,7 +11,7 @@
       <view class="body-tag">
         <text class="title">1.倾向体质</text>
         <van-tag
-          wx:if="{{relArr.length > 0}}"
+          wx:if="{{recArr.length > 0}}"
           type="danger"
           size="large"
           wx:for="{{recArr}}"
@@ -22,7 +22,7 @@
           bindtap="clickToBody"
           custom-class="tag-cal"
         >{{item.name}}</van-tag>
-        <text class="no" wx:if="{{relArr.length === 0}}">暂无记录</text>
+        <text class="no" wx:if="{{recArr.length === 0}}">暂无记录</text>
       </view>
       
       <view class="body-tag">

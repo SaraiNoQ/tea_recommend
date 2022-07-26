@@ -1,5 +1,6 @@
 // pages/history/history.ts
 import dayjs from '../../miniprogram_npm/dayjs/index'
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 Page({
 
   /**
@@ -7,13 +8,18 @@ Page({
    */
   data: {
     isNull: true,
-    record: []
+    record: [],
+    isEmpty: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    })
     this.setData({
       isNull: true
     })
@@ -65,6 +71,11 @@ Page({
       this.setData({
         isNull: false
       })
+      if (this.data.record.length === 0) {
+        this.setData({
+          isEmpty: true
+        })
+      }
     }
   },
 

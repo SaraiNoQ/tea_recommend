@@ -1,6 +1,7 @@
 <!--pages/history/history.wxml-->
 <view class="history">
-  <van-empty description="暂无历史记录" wx:if="{{isNull}}" />
+  <van-toast id="van-toast" wx:if="{{isNull}}" />
+  <van-empty description="暂无历史记录" wx:elif="{{isEmpty}}" />
   <view class="item" wx:else>
     <van-cell-group
       inset

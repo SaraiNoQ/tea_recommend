@@ -8,9 +8,9 @@ Page({
   data: {
     sourceData: {
       professional: '',
-      teaAge: -1,
-      height: -1,
-      weight: -1,
+      teaAge: 0,
+      height: 0,
+      weight: 0,
       growthIn: '',
       lifeIn: '',
       favoriteTea: '',
