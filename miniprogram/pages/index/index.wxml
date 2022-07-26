@@ -34,50 +34,57 @@
 
   <view class="operation">
     <buttonitem
-      color="填写调查问卷获取推荐"
+      color="体质测试及健康饮茶建议"
       imgurl="http://82.157.232.71/images/table-p.png"
       other="http://82.157.232.71/images/recom-l.png"
-      info="调查问卷"
+      info="体质测试及饮茶建议"
+      op="op"
       rheight="38"
       rwidth="38"
       lheight="42"
       lwidth="42"
       bindtap="navigateToUser"
+      class="a"
+    />
+    <buttonitem
+      class="special"
+      color="所有填表记录"
+      imgurl="http://82.157.232.71/images/table-p.png"
+      other="http://82.157.232.71/images/history-s.png"
+      info="历史记录"
+      op="op1"
+      rheight="36"
+      rwidth="35"
+      lheight="42"
+      lwidth="42"
+      bindtap="navigateToHistory"
+      class="b"
     />
     <buttonitem
       color="体质介绍和茶叶信息"
       other="http://82.157.232.71/images/recom-r.png"
       imgurl="http://82.157.232.71/images/tea-p.png"
       info="相关介绍"
-      style="margin-left: 16rpx;"
+      op="op3"
+      style="padding-left: 20rpx;"
       lheight="42"
       lwidth="42"
       bindtap="navigateToCheck"
+      class="c"
     />
     <buttonitem
-      class="special"
-      color="查看所有填表记录"
-      imgurl="http://82.157.232.71/images/table-p.png"
-      other="http://82.157.232.71/images/history-s.png"
-      info="历史记录"
-      style="margin-top: 5rpx; margin-left: 8rpx"
-      rheight="35"
-      rwidth="35"
-      lheight="40"
-      lwidth="40"
-      bindtap="navigateToHistory"
-    />
-    <buttonitem
-      color="使用过程中遇到的问题"
+      color="使用遇到的问题"
       imgurl="http://82.157.232.71/images/feedback-l.png"
       other="http://82.157.232.71/images/feedback-s.png"
       info="问题反馈"
-      style="margin-top: 3rpx; margin-left: 8rpx"
+      op="op3"
+      style="padding-left: 14rpx;"
       rheight="38"
       rwidth="38"
       lheight="42"
       lwidth="42"
       bindtap="navigateToFeedback"
+      class="d"
     />
   </view>
 

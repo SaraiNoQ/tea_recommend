@@ -4,7 +4,7 @@ import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 Page({
   data: {
     radioSex: '',
-    message: '本项目旨在通过问卷的形式给你推荐一款适合您的茶叶！'
+    message: '本项目旨在通过问卷的形式让您了解自己的身体状况，并推荐一套适合您的健康饮茶方案！'
   },
   async onLoad() {
   },

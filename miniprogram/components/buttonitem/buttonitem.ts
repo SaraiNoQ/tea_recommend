@@ -39,6 +39,10 @@ Component({
     rwidth: {
       type: Number,
       value: 40
+    },
+    op: {
+      type: String,
+      value: ''
     }
   },
 

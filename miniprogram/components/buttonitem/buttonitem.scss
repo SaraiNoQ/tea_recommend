@@ -13,15 +13,15 @@
   width: 100%;
   word-break:break-all; //英文
   white-space:pre-wrap; //中文
-  margin: 20rpx 0 20rpx 30rpx;
+  margin: 20rpx 0 0 30rpx;
 }
 
 .intro {
   display: inline-block;
-  margin: -20rpx 0rpx 10rpx 30rpx;
+  margin: 10rpx 0rpx 15rpx 30rpx;
   max-width: 80%;
   color: rgb(167, 163, 167);
-  overflow: hidden;
+  overflow: visible;
   white-space:nowrap;
   font-size: 26rpx !important;
 }
@@ -35,19 +35,32 @@
 
 .op {
   display: block;
-  width: 46vw;
-  margin: 20rpx 0rpx;
+  width: 60vw;
+  margin: 12rpx 0rpx 12rpx 10px;
   border-radius: 10rpx;
   background-color: #fff !important;
   box-shadow: 0 8rpx 12rpx rgba(0, 0, 0, 0.18);
+  padding-bottom: 10rpx;
 }
 
 .op1 {
-  background-color: rgb(236, 100, 16);
+  display: block;
+  width: 32vw;
+  margin: 12rpx 0rpx;
+  border-radius: 10rpx;
+  background-color: #fff !important;
+  box-shadow: 0 8rpx 12rpx rgba(0, 0, 0, 0.18);
+  padding-bottom: 10rpx;
 }
 
-.op2 {
-  background-color: skyblue;
+.op3 {
+  display: block;
+  width: 46vw;
+  margin: 12rpx 0rpx;
+  border-radius: 10rpx;
+  background-color: #fff !important;
+  box-shadow: 0 8rpx 12rpx rgba(0, 0, 0, 0.18);
+  padding-bottom: 10rpx;
 }
 
 .op3 {

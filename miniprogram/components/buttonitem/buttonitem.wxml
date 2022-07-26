@@ -1,5 +1,5 @@
 <!--components/buttonitem/buttonitem.wxml-->
-<view class="op">
+<view class="{{op}}">
   <text class="text info-text">{{info}}</text>
   <text class="intro">{{color}}</text>
   <!-- <image src="{{imgurl}}" mode="scaleToFill" class="svgimg"></image> -->

@@ -9,9 +9,9 @@ Page({
     age: '',
     radio: 0,
     professional: '',
-    teaAge: -1,
-    height: -1,
-    weight: -1,
+    teaAge: 0,
+    height: 0,
+    weight: 0,
     growthIn: '',
     lifeIn: '',
     favoriteTea: ''
@@ -134,7 +134,7 @@ Page({
     })
   },
   getTeaageValue (e: any) {
-    if (e.detail === '') {
+    if (e.detail === '' || !/^[0-9]{1,}$/g.test(e.detail)) {
       return
     }
     this.setData({
@@ -142,7 +142,7 @@ Page({
     })
   },
   getHeightValue (e: any) {
-    if (e.detail === '') {
+    if (e.detail === '' || !/^[0-9]{1,}$/g.test(e.detail)) {
       return
     }
     this.setData({
@@ -150,7 +150,7 @@ Page({
     })
   },
   getWeightValue (e: any) {
-    if (e.detail === '') {
+    if (e.detail === '' || !/^[0-9]{1,}$/g.test(e.detail)) {
       return
     }
     this.setData({
