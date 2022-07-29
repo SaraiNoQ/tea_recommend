@@ -6,67 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    questions: [{
-      id: '1',
-      description: '您精力充沛吗？(指精神头足，乐于做事)',
-      type: 0,
-      options: [{
-        id: '1',
-        description: '没有(根本不/从来没有)',
-      }, {
-        id: '2',
-        description: '很少(有一点/偶尔)',
-      }, {
-        id: '3',
-        description: '有时(有些/少数时间)',
-      },{
-          id: '4',
-          description: '经常(相当多数时间)',
-      },{
-          id: '5',
-          description: '总是(非常每天)',
-      }]
-    }, {
-      id: '2',
-      description: '您容易疲乏吗？(指体力如何，是否稍微活动一下或做一点家务劳动就感到累)*',
-      type: 0,
-      options: [{
-        id: '1',
-        description: '没有(根本不/从来没有)',
-      }, {
-        id: '2',
-        description: '很少(有一点/偶尔)',
-      }, {
-        id: '3',
-        description: '有时(有些/少数时间)',
-      },{
-          id: '4',
-          description: '经常(相当多数时间)',
-      },{
-          id: '5',
-          description: '总是(非常每天)',
-      }]
-    }, {
-      id: '3',
-      description: '您容易气短，呼吸短促，接不上气吗？',
-      type: 0,
-      options: [{
-        id: '1',
-        description: '没有(根本不/从来没有)',
-      }, {
-        id: '2',
-        description: '很少(有一点/偶尔)',
-      }, {
-        id: '3',
-        description: '有时(有些/少数时间)',
-      },{
-          id: '4',
-          description: '经常(相当多数时间)',
-      },{
-          id: '5',
-          description: '总是(非常每天)',
-      }]
-    }],
+    questions: [],
     infoData: {
       weight: -1,
       height: -1,
@@ -76,30 +16,23 @@ Page({
       growthIn: '', 
       professional: ''
     },
-    answers: []
+    answers: [],
+    loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad() {
+    this.setData({
+      loading: true,
+    })
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+      selector: '#my-toast',
+    });
     // 获取全部题目
-    // wx.cloud.callContainer({
-    //   path: '/api/survey/',
-    //   method: 'GET',
-    //   header: {
-    //     'X-WX-SERVICE': 'springboot-cxiq',
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: res => {
-    //     this.setData({
-    //       questions: res.data.data.problems
-    //     })
-    //   },
-    //   fail: err => {
-    //     console.log(err)
-    //   }
-    // })
     try {
       const res = await wx.cloud.callContainer({
         path: '/api/survey/',
@@ -122,12 +55,15 @@ Page({
       const retData: Array<{optionsId: string; problemId: string;}> = ret.data.data
       const data = resData.problems
       data.map((e: any, index: number) => Object.assign(e, retData[index]))
-      console.log('data', resData.problems, retData, data)
       this.setData({
         questions: resData.problems
       })
     } catch (error) {
       console.log('get request error!', error)
+    } finally {
+      this.setData({
+        loading: false,
+      })
     }
     this.setData({
       infoData: JSON.parse(wx.getStorageSync('infoData'))

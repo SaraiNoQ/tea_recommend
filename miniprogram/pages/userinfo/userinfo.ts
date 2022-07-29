@@ -14,7 +14,8 @@ Page({
     weight: 0,
     growthIn: '',
     lifeIn: '',
-    favoriteTea: ''
+    favoriteTea: '',
+    loading: true,
   },
 
   /**
@@ -34,6 +35,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.setData({
+      loading: true
+    })
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+      selector: '#my-toast',
+    });
     wx.cloud.callContainer({
       path: '/api/survey/info',
       method: 'GET',
@@ -68,7 +77,8 @@ Page({
             height: resData.height,
             favoriteTea: resData.favoriteTea,
             lifeIn: resData.lifeIn,
-            growthIn: resData.growthIn
+            growthIn: resData.growthIn,
+            loading: false, // 加载状态
           })
         }
       },
