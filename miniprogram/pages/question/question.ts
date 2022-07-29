@@ -82,24 +82,53 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  async onLoad() {
     // 获取全部题目
-    wx.cloud.callContainer({
-      path: '/api/survey/',
-      method: 'GET',
-      header: {
-        'X-WX-SERVICE': 'springboot-cxiq',
-        'content-type': 'application/json' // 默认值
-      },
-      success: res => {
-        this.setData({
-          questions: res.data.data.problems
-        })
-      },
-      fail: err => {
-        console.log(err)
-      }
-    })
+    // wx.cloud.callContainer({
+    //   path: '/api/survey/',
+    //   method: 'GET',
+    //   header: {
+    //     'X-WX-SERVICE': 'springboot-cxiq',
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: res => {
+    //     this.setData({
+    //       questions: res.data.data.problems
+    //     })
+    //   },
+    //   fail: err => {
+    //     console.log(err)
+    //   }
+    // })
+    try {
+      const res = await wx.cloud.callContainer({
+        path: '/api/survey/',
+        method: 'GET',
+        header: {
+          'X-WX-SERVICE': 'springboot-cxiq',
+          'content-type': 'application/json' // 默认值
+        }
+      })
+      const ret = await wx.cloud.callContainer({
+        path: '/api/survey/answer',
+        method: 'GET',
+        header: {
+          'X-WX-SERVICE': 'springboot-cxiq',
+          'content-type': 'application/json',
+          'Authorization': wx.getStorageSync('token'),
+        }
+      })
+      const resData = res.data.data
+      const retData: Array<{optionsId: string; problemId: string;}> = ret.data.data
+      const data = resData.problems
+      data.map((e: any, index: number) => Object.assign(e, retData[index]))
+      console.log('data', resData.problems, retData, data)
+      this.setData({
+        questions: resData.problems
+      })
+    } catch (error) {
+      console.log('get request error!', error)
+    }
     this.setData({
       infoData: JSON.parse(wx.getStorageSync('infoData'))
     })
