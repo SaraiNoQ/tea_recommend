@@ -1,7 +1,21 @@
 // pages/question/question.ts
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
-Page({
 
+interface answerInfo {id?: string, type?: number, data?: string, options_id?: string}
+interface Option {
+  describe: null | string;
+  id:       null | string;
+}
+interface Datum {
+  describe: string;
+  id:       string;
+  options:  Option[];
+  /**
+   * 0和1 代表 正常的选择题   2代表需要上传图片 3代表文本框上传文字
+   */
+  type: number;
+}
+Page({
   /**
    * 页面的初始数据
    */
@@ -17,7 +31,8 @@ Page({
       professional: ''
     },
     answers: [],
-    loading: true
+    loading: true,
+    submitLoading: false
   },
 
   /**
@@ -51,12 +66,20 @@ Page({
           'Authorization': wx.getStorageSync('token'),
         }
       })
-      const resData = res.data.data
+      const resData: {problems: Array<Datum>; errorMsg?: string} = res.data.data
       const retData: Array<{optionsId: string; problemId: string;}> = ret.data.data
-      const data = resData.problems
-      data.map((e: any, index: number) => Object.assign(e, retData[index]))
+      const data: Array<Datum> = resData.problems
+      // 未排序版本
+      // data.map((e: any) => {
+      //   retData.forEach((element: {optionsId: string; problemId: string;}) => {
+      //     if (e.id === element.problemId) {
+      //       Object.assign(e, element)
+      //     }
+      //   })
+      // })
+      data.map((e: Datum, index: number) => Object.assign(e, retData[index]))
       this.setData({
-        questions: resData.problems
+        questions: resData.problems as []
       })
     } catch (error) {
       console.log('get request error!', error)
@@ -121,7 +144,7 @@ Page({
 
   getValue(e: any) {
     try {
-      let temp: Array<{id?: string, type?: number, data?: string, options_id?: string}> = this.data.answers
+      let temp: Array<answerInfo> = this.data.answers
       temp[parseInt(e.detail.id)] = {
         id: e.detail.id,
         type: e.detail.type,
@@ -133,20 +156,48 @@ Page({
       })
     } catch (error) {
       console.log(error)
-    }
+    } 
+    // finally {
+    //   console.log('change', this.data.answers)
+    //   for (let i = 0; i < this.data.answers.length; i++) {
+    //     console.log(this.data.answers[i] === undefined)
+    //   }
+    // }
   },
 
   submitQuestion () {
-    if (this.data.answers.length === 0) {
-      Toast.fail('请填写表单！')
-      return
-    }
-    for (let i = 1; i < this.data.answers.length; i++) {
-      if (this.data.answers[i] === undefined) {
-        Toast.fail('表单不完整！')
-        return
+    // 将回显内容填入answers数组
+    const arr: Array<{id: string; optionsId?: string; problemId?: string; type: number;}> = this.data.questions
+    const newAnswers: Array<undefined | {id: string; type: number; options_id: string;}> = [...this.data.answers]
+    for (let i = 1; i <= arr.length; i++) {
+      if (newAnswers[i] === undefined && arr[i - 1].optionsId) {
+        newAnswers[i] = {
+          id: arr[i - 1].id,
+          type: arr[i - 1].type,
+          options_id: arr[i - 1].optionsId as string
+        }
       }
     }
+    this.setData({
+      answers: newAnswers as []
+    })
+
+    // 判断表单
+    if (this.data.answers.length === 0) {
+      Toast.fail({
+        message: '请填写表单！',
+        selector: '#van-toast',
+      })
+      return
+    }
+    if (this.data.answers.length <= this.data.questions.length) {
+      Toast.fail({
+        message: '表单不完整！',
+        selector: '#van-toast',
+      })
+      return
+    }
+
     // 提交表单
     const { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional } = this.data.infoData
     const data = {

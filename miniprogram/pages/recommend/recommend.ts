@@ -4,26 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    recommendBody: [{
-      name: '痰湿质(E型)',
-      id: '1'
-    }, {
-      name: '阳虚质(C型)',
-      id: '2'
-    }],
-    relativeBody: [{
-      name :'湿热质(F型)',
-      id: '3'
-    }, {
-      name :'湿热质(F型)',
-      id: '3'
-    }, {
-      name :'湿热质(F型)',
-      id: '3'
-    }, {
-      name :'湿热质(F型)',
-      id: '3'
-    }]
+    recommendBody: [],
+    relativeBody: []
   },
 
   /**

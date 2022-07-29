@@ -3,7 +3,10 @@
   <view class="content">
     <text class="finish">您的答卷已经提交，感谢您的参与！</text>
     <text class="head">您的倾向体质为：</text>
-    <view class="text-flex">
+    <view wx:if="{{recommendBody.length === 0}}">
+      <text class="re-text">无倾向体质</text>
+    </view>
+    <view class="text-flex" wx:else>
       <text
         class="re-text"
         wx:for="{{recommendBody}}"
@@ -15,6 +18,9 @@
       >{{item.name}}</text>
     </view>
     <text class="head">您的接近体质为：</text>
+    <view wx:if="{{relativeBody.length === 0}}">
+      <text class="rec-text">无推荐体质</text>
+    </view>
     <view class="text-flex">
       <text
         class="rec-text"

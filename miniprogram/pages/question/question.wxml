@@ -41,4 +41,5 @@
 </block>
 
 <van-toast id="my-toast" wx:if="{{loading}}"/>
+<van-toast id="submit-toast" wx:if="{{submitLoading}}"/>
 </view>
