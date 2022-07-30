@@ -11,9 +11,6 @@
       interval="5500"
     >
       <swiper-item>
-        <view class="swiper-item">老迈思想茶携手与您走进茶与人生！祝君安康！</view>
-      </swiper-item>
-      <swiper-item>
         <image
           src="http://82.157.232.71/images/logo-p.png"
           class="swipper-image"
@@ -21,7 +18,8 @@
         ></image>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-item">尊敬的朋友，您好，通过这份中医体质与茶疗自测问卷，您将免费获得自身中医体质状态的评估结果以及与您体质适配的茶品推荐，祝愿茶成为您生命中不可或缺的部分。</view>
+        <view class="swiper-item">尊敬的朋友，您好！通过这份中医体质与茶疗自测问卷，您将免费获得自身中医体质状态的评估结果以及与您体质适配的茶品推荐，祝愿茶成为您生命中不可或缺的部分。
+    老迈思想茶携手与您走进茶与人生！祝君安康！</view>
       </swiper-item>
     </swiper>
   </view>

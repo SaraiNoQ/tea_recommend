@@ -11,7 +11,7 @@
   }
 
   .project-info {
-    height: 460rpx;
+    height: 510rpx;
     margin: 0rpx 20rpx 20rpx 20rpx;
     box-shadow: 0 8rpx 10px rgba(0, 0, 0, 0.2);
     border-radius: 12rpx;
@@ -27,9 +27,12 @@
       }
 
       .swiper-item {
-        margin: 50rpx 50rpx 60rpx;
-        font-size: 34rpx;
+        margin: 20rpx 50rpx 60rpx;
+        font-size: 42rpx;
+        color: #333;
+        text-align: justify;
         text-indent: 1.5em;
+        white-space: pre-wrap;
       }
     }
   }

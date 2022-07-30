@@ -4,6 +4,7 @@
   <block wx:else>
     <view class="content">
       <text class="finish">您的答卷已经提交，感谢您的参与！</text>
+      <text class="f1">您可点击某项体质类型，查看该体质详细信息</text>
       <text class="head">您的倾向体质为：</text>
       <view wx:if="{{recommendBody.length === 0}}">
         <text class="re-text">无倾向体质</text>
@@ -40,10 +41,10 @@
           bindtap="clickToTea"
           >
             <text class="pb-5">{{item.name}}</text>
-            <recbox
+            <!-- <recbox
               class="box-rec"
               recommend="{{item.data}}"
-            />
+            /> -->
         </view>
       </view>
     </view>

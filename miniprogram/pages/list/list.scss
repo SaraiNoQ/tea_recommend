@@ -9,7 +9,7 @@
 
     .button-logout {
       font-size: 32rpx;
-      background-color: rgb(228, 69, 95);
+      background-color: rgb(228, 62, 89);
       border: 0;
     }
   }
@@ -37,4 +37,8 @@
       }
     }
   }
+}
+
+.van-cell__title {
+  font-size: 30rpx;
 }

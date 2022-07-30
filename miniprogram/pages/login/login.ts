@@ -94,8 +94,8 @@ Page({
                 path: '/api/user/login',
                 data: {
                   code: code,
-                  nickName: nickName,
-                  avatarUrl: avatarUrl
+                  nickname: nickName,
+                  avatar: avatarUrl
                 },
                 method:"POST",
                 header: {

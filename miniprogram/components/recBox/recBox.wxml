@@ -1,7 +1,14 @@
 <!--components/recBox/recBox.wxml-->
 <view class="box-c">
   <view>
-    <view class="head">每日饮茶推荐</view>
+    <view class="head">饮茶建议</view>
+    <view class="daily-tea">
+      <view class="item">{{recommend.drinkingAdvice}}</view>
+    </view>
+  </view>
+
+  <view>
+    <view class="head">每日推荐</view>
     <view class="daily-tea">
       <view class="item"><text class="title">上午：</text>{{recommend.morningTea}}</view>
       <view class="item"><text class="title">下午：</text>{{recommend.afternoonTea}}</view>

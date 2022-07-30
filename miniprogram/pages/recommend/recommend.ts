@@ -63,11 +63,6 @@ Page({
             }
           })
           _arr1.push(res)
-          // if (res.statusCode === 200) {
-          //   const teaData: TeaData = res.data.data
-          //   recData[idx].data = teaData
-          //   // Object.assign(recData[idx], { data: teaData })
-          // }
         })
         const resArr1 = await Promise.all(_arr1)
         resArr1.forEach((e: any, idx: number) => {
@@ -167,7 +162,6 @@ Page({
   },
 
   clickToTea (e: any) {
-    console.log(e.currentTarget.dataset.item)
     const event: {name: String, bodytype: String} = {
       name: e.currentTarget.dataset.item.name,
       bodytype: e.currentTarget.dataset.item.id
