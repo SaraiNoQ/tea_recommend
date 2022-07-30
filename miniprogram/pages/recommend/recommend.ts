@@ -167,9 +167,10 @@ Page({
   },
 
   clickToTea (e: any) {
+    console.log(e.currentTarget.dataset.item)
     const event: {name: String, bodytype: String} = {
-      name: e.target.dataset.item.name,
-      bodytype: e.target.dataset.item.id
+      name: e.currentTarget.dataset.item.name,
+      bodytype: e.currentTarget.dataset.item.id
     }
     wx.navigateTo({
       url: '/pages/detail/detail?bodyType_id=' + event.bodytype + '&body=' + event.name
