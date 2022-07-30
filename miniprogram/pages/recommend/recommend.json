@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "recbox": "../../components/recBox/recBox"
+  },
+  "navigationBarTitleText": "提交结果"
 }

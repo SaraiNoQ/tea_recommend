@@ -1,17 +1,38 @@
 // pages/recommend/recommend.ts
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+interface TeaData {
+  afternoonTea:   string;
+  autumnTea:      string;
+  bodyTypeId:     string;
+  drinkingAdvice: string;
+  evenTea:        string;
+  morningTea:     string;
+  specialTea:     string;
+  springTea:      string;
+  summerTea:      string;
+  winterTea:      string;
+}
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     recommendBody: [],
-    relativeBody: []
+    relativeBody: [],
+    loading: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options: {bodyArr: string}) {
+  async onLoad(options: {bodyArr: string}) {
+    this.setData({
+      loading: true
+    })
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
     const arr: Array<{id: String, name: String, result: Number}> = JSON.parse(options.bodyArr)
     const arr_com: any = []
     const arr_rel: any = []
@@ -24,10 +45,70 @@ Page({
         arr_rel.push(e)
       }
     })
-    this.setData({
-      recommendBody: arr_com,
-      relativeBody: arr_rel
-    })
+
+    // 设置box
+    try {
+      const recData: any[] = [...arr_com]
+      const relData: any[] = [...arr_rel]
+      const _arr1: any[] = []
+      const _arr2: any[] = []
+      if (recData.length > 0) {
+        recData.forEach(async (e: {id: string; name: string; result: number}, idx: number) => {
+          const res = wx.cloud.callContainer({
+            path: '/api/teaRecommend?bodyType_id=' + e.id,
+            method: 'GET',
+            header: {
+              "X-WX-SERVICE": "springboot-cxiq",
+              "content-type": "application/json",
+            }
+          })
+          _arr1.push(res)
+          // if (res.statusCode === 200) {
+          //   const teaData: TeaData = res.data.data
+          //   recData[idx].data = teaData
+          //   // Object.assign(recData[idx], { data: teaData })
+          // }
+        })
+        const resArr1 = await Promise.all(_arr1)
+        resArr1.forEach((e: any, idx: number) => {
+          if (e.statusCode === 200 && e.data.code === 200) {
+            const teaData: TeaData = e.data.data
+            recData[idx].data = teaData
+          }
+        })
+        if (relData.length > 0) {
+          relData.forEach(async (e: {id: string; name: string; result: number}, idx: number) => {
+            const res = wx.cloud.callContainer({
+              path: '/api/teaRecommend?bodyType_id=' + e.id,
+              method: 'GET',
+              header: {
+                "X-WX-SERVICE": "springboot-cxiq",
+                "content-type": "application/json",
+              }
+            })
+            _arr2.push(res)
+          })
+          const resArr2 = await Promise.all(_arr2)
+          resArr2.forEach((e: any, idx: number) => {
+            if (e.statusCode === 200 && e.data.code === 200) {
+              const teaData: TeaData = e.data.data
+              relData[idx].data = teaData
+            }
+          })
+        }
+        // @ts-ignore
+        this.setData({
+          recommendBody: recData,
+          relativeBody: relData,
+        })
+      }
+    } catch (error) {
+      console.log('set box error', error)
+    } finally {
+      this.setData({
+        loading: false
+      })
+    }
   },
 
   /**

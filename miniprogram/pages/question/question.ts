@@ -156,13 +156,7 @@ Page({
       })
     } catch (error) {
       console.log(error)
-    } 
-    // finally {
-    //   console.log('change', this.data.answers)
-    //   for (let i = 0; i < this.data.answers.length; i++) {
-    //     console.log(this.data.answers[i] === undefined)
-    //   }
-    // }
+    }
   },
 
   submitQuestion () {
@@ -189,14 +183,31 @@ Page({
         selector: '#van-toast',
       })
       return
-    }
-    if (this.data.answers.length <= this.data.questions.length) {
+    } else if (this.data.answers.length <= this.data.questions.length) {
       Toast.fail({
         message: '表单不完整！',
         selector: '#van-toast',
       })
       return
     }
+    for (let i = 1; i < this.data.answers.length; i++) {
+      if (this.data.answers[i] === undefined) {
+        Toast.fail({
+          message: '表单不完整！',
+          selector: '#van-toast',
+        })
+        return
+      }
+    }
+
+    this.setData({
+      submitLoading: true
+    })
+    Toast.loading({
+      message: '提交中...',
+      forbidClick: true,
+      selector: '#submit-toast',
+    });
 
     // 提交表单
     const { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional } = this.data.infoData
@@ -218,9 +229,15 @@ Page({
         wx.navigateTo({
           url: '/pages/recommend/recommend?bodyArr=' + JSON.stringify(resData)
         })
+        this.setData({
+          submitLoading: false
+        })
       },
       fail: err => {
         console.log('error', err)
+        this.setData({
+          submitLoading: false
+        })
       }
     })
   }

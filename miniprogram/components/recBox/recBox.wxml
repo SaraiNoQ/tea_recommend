@@ -1,0 +1,21 @@
+<!--components/recBox/recBox.wxml-->
+<view class="box-c">
+  <view>
+    <view class="head">每日饮茶推荐</view>
+    <view class="daily-tea">
+      <view class="item"><text class="title">上午：</text>{{recommend.morningTea}}</view>
+      <view class="item"><text class="title">下午：</text>{{recommend.afternoonTea}}</view>
+      <view class="item"><text class="title">晚上：</text>{{recommend.evenTea}}</view>
+    </view>
+  </view>
+
+  <view>
+    <view class="head">四季推荐</view>
+    <view class="season-tea">
+      <view class="item"><text class="title">春季：</text>{{recommend.springTea}}</view>
+      <view class="item"><text class="title">夏季：</text>{{recommend.summerTea}}</view>
+      <view class="item"><text class="title">秋季：</text>{{recommend.autumnTea}}</view>
+      <view class="item"><text class="title">冬季：</text>{{recommend.winterTea}}</view>
+    </view>
+  </view>
+</view>

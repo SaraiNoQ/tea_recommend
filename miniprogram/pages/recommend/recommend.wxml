@@ -1,52 +1,67 @@
 <!--pages/recommend/recommend.wxml-->
 <view class="recommend-container">
-  <view class="content">
-    <text class="finish">您的答卷已经提交，感谢您的参与！</text>
-    <text class="head">您的倾向体质为：</text>
-    <view wx:if="{{recommendBody.length === 0}}">
-      <text class="re-text">无倾向体质</text>
+  <van-toast id="van-toast" wx:if="{{loading}}" />
+  <block wx:else>
+    <view class="content">
+      <text class="finish">您的答卷已经提交，感谢您的参与！</text>
+      <text class="head">您的倾向体质为：</text>
+      <view wx:if="{{recommendBody.length === 0}}">
+        <text class="re-text">无倾向体质</text>
+      </view>
+      <view class="text-flex" wx:else>
+        <view
+          class="re-text"
+          wx:for="{{recommendBody}}"
+          wx:for-index="index"
+          wx:for-item="item"
+          wx:key="index"
+          data-item="{{item}}"
+          bindtap="clickToTea"
+        >
+          <text class="pb-5">{{item.name}}</text>
+          <recbox
+            class="box-rec"
+            recommend="{{item.data}}"
+          />
+        </view>
+      </view>
+      <text class="head">您的接近体质为：</text>
+      <view wx:if="{{relativeBody.length === 0}}">
+        <text class="rec-text">无推荐体质</text>
+      </view>
+      <view class="text-flex">
+        <view
+          class="rec-text"
+          wx:for="{{relativeBody}}"
+          wx:for-index="index"
+          wx:for-item="item"
+          wx:key="index"
+          data-item="{{item}}"
+          bindtap="clickToTea"
+          >
+            <text class="pb-5">{{item.name}}</text>
+            <recbox
+              class="box-rec"
+              recommend="{{item.data}}"
+            />
+        </view>
+      </view>
     </view>
-    <view class="text-flex" wx:else>
-      <text
-        class="re-text"
-        wx:for="{{recommendBody}}"
-        wx:for-index="index"
-        wx:for-item="item"
-        wx:key="index"
-        data-item="{{item}}"
-        bindtap="clickToTea"
-      >{{item.name}}</text>
+    <view class="button">
+        <van-button
+          type="primary"
+          block
+          custom-class="button-body"
+          bindtap="clickToBody"
+        >体质查询</van-button>
     </view>
-    <text class="head">您的接近体质为：</text>
-    <view wx:if="{{relativeBody.length === 0}}">
-      <text class="rec-text">无推荐体质</text>
+    <view class="button">
+        <van-button
+          type="info"
+          block
+          custom-class="button-body button-two"
+          bindtap="clickToIndex"
+        >返回首页</van-button>
     </view>
-    <view class="text-flex">
-      <text
-        class="rec-text"
-        wx:for="{{relativeBody}}"
-        wx:for-index="index"
-        wx:for-item="item"
-        wx:key="index"
-        data-item="{{item}}"
-        bindtap="clickToTea"
-      >{{item.name}}</text>
-    </view>
-  </view>
-  <view class="button">
-      <van-button
-        type="primary"
-        block
-        custom-class="button-body"
-        bindtap="clickToBody"
-      >体质查询</van-button>
-  </view>
-  <view class="button">
-      <van-button
-        type="info"
-        block
-        custom-class="button-body button-two"
-        bindtap="clickToIndex"
-      >返回首页</van-button>
-  </view>
+  </block>
 </view>
