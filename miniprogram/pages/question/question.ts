@@ -28,7 +28,9 @@ Page({
       teaAge: '', 
       lifeIn: '', 
       growthIn: '', 
-      professional: ''
+      professional: '',
+      age: '',
+      sex: -1
     },
     answers: [],
     loading: true,
@@ -210,10 +212,10 @@ Page({
     });
 
     // 提交表单
-    const { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional } = this.data.infoData
+    const { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional, age, sex } = this.data.infoData
     const data = {
       problem: this.data.answers.slice(1),
-      info: { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional }
+      info: { weight, height, favoriteTea, teaAge, lifeIn, growthIn, professional, age, sex }
     }
     wx.cloud.callContainer({
       path: '/api/survey/submit',

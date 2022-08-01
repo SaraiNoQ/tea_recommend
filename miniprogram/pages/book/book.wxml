@@ -12,7 +12,7 @@
         <text class="title">1.倾向体质</text>
         <van-tag
           wx:if="{{recArr.length > 0}}"
-          type="danger"
+          type="success"
           size="large"
           wx:for="{{recArr}}"
           wx:for-index="index"

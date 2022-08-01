@@ -37,10 +37,10 @@ Page({
     const arr_com: any = []
     const arr_rel: any = []
     arr.forEach((e: {id: String, name: String, result: Number})=> {
-      if (e.result === 2) {
+      if (e.result === 1) {
         e.name = e.name.replace(/[ ]/g, '')
         arr_com.push(e)
-      } else if (e.result === 1) {
+      } else if (e.result === 2) {
         e.name = e.name.replace(/[ ]/g, '')
         arr_rel.push(e)
       }
@@ -69,8 +69,11 @@ Page({
           if (e.statusCode === 200 && e.data.code === 200) {
             const teaData: TeaData = e.data.data
             recData[idx].data = teaData
+            // 设置展示状态
+            recData[idx].display = false
           }
         })
+        recData[0].display = true
         if (relData.length > 0) {
           relData.forEach(async (e: {id: string; name: string; result: number}, idx: number) => {
             const res = wx.cloud.callContainer({
@@ -88,6 +91,8 @@ Page({
             if (e.statusCode === 200 && e.data.code === 200) {
               const teaData: TeaData = e.data.data
               relData[idx].data = teaData
+              // 设置展示状态
+              relData[idx].display = false
             }
           })
         }
@@ -161,13 +166,41 @@ Page({
     })
   },
 
+  // clickToTea (e: any) {
+  //   const event: {name: String, bodytype: String} = {
+  //     name: e.currentTarget.dataset.item.name,
+  //     bodytype: e.currentTarget.dataset.item.id
+  //   }
+  //   wx.navigateTo({
+  //     url: '/pages/detail/detail?bodyType_id=' + event.bodytype + '&body=' + event.name
+  //   })
+  // },
   clickToTea (e: any) {
-    const event: {name: String, bodytype: String} = {
-      name: e.currentTarget.dataset.item.name,
-      bodytype: e.currentTarget.dataset.item.id
-    }
-    wx.navigateTo({
-      url: '/pages/detail/detail?bodyType_id=' + event.bodytype + '&body=' + event.name
+    const event = e.currentTarget.dataset.item
+    let recData = this.data.recommendBody
+
+    this.data.recommendBody.forEach((e: any, idx: number) => {
+      if (e.id === event.id) {
+        // @ts-ignore
+        recData[idx].display = !e.display
+        this.setData({
+          recommendBody: recData
+        })
+      }
+    })
+  },
+  clickToTeaR (e: any) {
+    const event = e.currentTarget.dataset.item
+    let relData = this.data.relativeBody
+
+    this.data.relativeBody.forEach((e: any, idx: number) => {
+      if (e.id === event.id) {
+        // @ts-ignore
+        relData[idx].display = !e.display
+        this.setData({
+          relativeBody: relData
+        })
+      }
     })
   },
   clickToIndex () {

@@ -1,1 +1,21 @@
 /* components/bodycategory/bodycategory.wxss */
+.tag-l {
+  margin-left: -20rpx;
+  width: max-content;
+}
+
+.title-t {
+  margin-top: 6rpx;
+  margin-bottom: 10rpx;
+  font-size: 36rpx;
+}
+
+.desc-m {
+  font-size: 30rpx;
+  text-align: justify;
+}
+
+.button-b {
+  font-size: 28rpx;
+  letter-spacing: 0.1em;
+}

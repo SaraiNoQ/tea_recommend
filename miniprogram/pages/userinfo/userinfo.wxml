@@ -6,7 +6,7 @@
       <text class="content">您好！我们将要收集您的个人身体状态来辅助我们的测试。我们承诺您所提供的全部信息只用于计算您的体质信息，且会进行严格保密，不会用于任何途径的盈利。谢谢您的配合！</text>
     </view>
 
-    <userinfo radio="{{radio}}" title="1.您的性别？" options="{{['男', '女']}}" bind:submitRadio="getRadio" />
+    <userinfo radio="{{sex}}" title="1.您的性别？" options="{{['男', '女']}}" bind:submitRadio="getRadio" />
     <userinput value="{{age}}" title="2.您的年龄？" message="请填写您的年龄" bind:submitInputValue="getInputValue" />
     <userinput value="{{professional}}" title="3.您的职业？" message="请填写您的职业" bind:submitInputValue="getProfessionValue" />
     <userinput value="{{teaAge}}" title="4.您的茶龄(单位:年)？" message="请填写您的茶龄" bind:submitInputValue="getTeaageValue" />

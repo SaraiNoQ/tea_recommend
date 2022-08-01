@@ -1,5 +1,15 @@
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
-// pages/userinfo/userinfo.ts
+interface UserInfo {
+  professional: string,
+  teaAge: number,
+  weight: number,
+  height: number,
+  favoriteTea: string,
+  lifeIn: string,
+  growthIn: string,
+  age: number | string,
+  sex: number
+}
 Page({
 
   /**
@@ -7,7 +17,7 @@ Page({
    */
   data: {
     age: '',
-    radio: 0,
+    sex: -1,
     professional: '',
     teaAge: 0,
     height: 0,
@@ -59,17 +69,8 @@ Page({
           })
           return
         }
-        const resData: {professional: string, teaAge: number, weight: number, height: number, favoriteTea: string, lifeIn: string, growthIn: string} = res.data.data
+        const resData: UserInfo = res.data.data
         try {
-          const age = JSON.parse(wx.getStorageSync('infoData')).age
-          const radio =  JSON.parse(wx.getStorageSync('infoData')).radio
-          this.setData({
-            age: age,
-            radio: radio
-          })
-        } catch (error) {
-          console.log(error)
-        } finally {
           this.setData({
             professional: resData.professional,
             teaAge: resData.teaAge,
@@ -78,8 +79,12 @@ Page({
             favoriteTea: resData.favoriteTea,
             lifeIn: resData.lifeIn,
             growthIn: resData.growthIn,
+            age: resData.age as string,
+            sex: resData.sex || -1,
             loading: false, // 加载状态
           })
+        } catch (error) {
+          console.log(error)
         }
       },
       fail: err => {
@@ -134,8 +139,9 @@ Page({
     })
   },
   getRadio (e: any) {
+    console.log(e)
     this.setData({
-      radio: e.detail
+      sex: e.detail
     })
   },
   getProfessionValue (e: any) {

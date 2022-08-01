@@ -1,14 +1,24 @@
 <!--components/bodycategory/bodycategory.wxml-->
 <van-card
-    tag="{{tag}}"
     desc="{{desc}}"
-    title="总体特征"
+    title="体质特征"
+    title-class="title-t"
+    desc-class="desc-m"
   >
+  <view slot="tag">
+    <van-tag
+      type="success"
+      mark
+      size="large"
+      custom-class="tag-l"
+    >{{tag}}</van-tag>
+  </view>
   <view slot="footer">
     <van-button
-      size="mini"
+      size="small"
       type="info"
       bind:tap="navigateToDetail"
+      custom-class="button-b"
     >详情</van-button>
   </view>
 </van-card>

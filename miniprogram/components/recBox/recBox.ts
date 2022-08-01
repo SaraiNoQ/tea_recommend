@@ -19,25 +19,16 @@ Component({
     recommend: {
       type: Object
     },
-    springTea: {
-      type: String
-    },
-    summerTea: {
-      type: String
-    },
-    autumnTea: {
-      type: String
-    },
-    winterTea: {
-      type: String
-    },
+    display: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
   },
 
   /**

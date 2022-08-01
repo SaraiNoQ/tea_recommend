@@ -5,9 +5,9 @@
     <view class="content">
       <text class="finish">您的答卷已经提交，感谢您的参与！</text>
       <text class="f1">您可点击某项体质类型，查看该体质详细信息</text>
-      <text class="head">您的倾向体质为：</text>
+      <text class="head">您的体质类型为：</text>
       <view wx:if="{{recommendBody.length === 0}}">
-        <text class="re-text">无倾向体质</text>
+        <text class="re-text">无相关体质</text>
       </view>
       <view class="text-flex" wx:else>
         <view
@@ -23,12 +23,13 @@
           <recbox
             class="box-rec"
             recommend="{{item.data}}"
+            display="{{item.display || false}}"
           />
         </view>
       </view>
-      <text class="head">您的接近体质为：</text>
+      <text class="head">您的倾向体质为：</text>
       <view wx:if="{{relativeBody.length === 0}}">
-        <text class="rec-text">无推荐体质</text>
+        <text class="rec-text">无倾向体质</text>
       </view>
       <view class="text-flex">
         <view
@@ -38,13 +39,14 @@
           wx:for-item="item"
           wx:key="index"
           data-item="{{item}}"
-          bindtap="clickToTea"
+          bindtap="clickToTeaR"
           >
             <text class="pb-5">{{item.name}}</text>
-            <!-- <recbox
+            <recbox
               class="box-rec"
               recommend="{{item.data}}"
-            /> -->
+              display="{{item.display || false}}"
+            />
         </view>
       </view>
     </view>
