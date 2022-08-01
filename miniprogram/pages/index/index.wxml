@@ -7,8 +7,9 @@
       indicator-dots="true"
       indicator-active-color="rgb(223,93,12)"
       autoplay="true"
-      current="1"
-      interval="5500"
+      current="0"
+      interval="5000"
+      circular="true"
     >
       <swiper-item>
         <image
@@ -28,6 +29,8 @@
     <van-notice-bar
       left-icon="volume-o"
       text="{{message}}"
+      speed="50"
+      custom-class="notice"
     />
   </view>
 
@@ -38,10 +41,11 @@
       other="http://82.157.232.71/images/recom-l.png"
       info="体质测试及饮茶建议"
       op="op"
-      rheight="38"
-      rwidth="38"
-      lheight="42"
-      lwidth="42"
+      rheight="46"
+      rwidth="46"
+      lheight="52"
+      lwidth="52"
+      style="padding-top: 5rpx"
       bindtap="navigateToUser"
       class="a"
     />
@@ -52,11 +56,12 @@
       other="http://82.157.232.71/images/history-s.png"
       info="历史记录"
       op="op1"
-      rheight="36"
-      rwidth="35"
-      lheight="42"
-      lwidth="42"
+      rheight="44"
+      rwidth="44"
+      lheight="52"
+      lwidth="52"
       bindtap="navigateToHistory"
+      style="padding-top: 6rpx;"
       class="b"
     />
     <buttonitem
@@ -66,8 +71,10 @@
       info="相关介绍"
       op="op3"
       style="padding-left: 20rpx;"
-      lheight="42"
-      lwidth="42"
+      lheight="52"
+      lwidth="52"
+      rheight="50"
+      rwidth="50"
       bindtap="navigateToCheck"
       class="c"
     />
@@ -78,10 +85,10 @@
       info="问题反馈"
       op="op3"
       style="padding-left: 14rpx;"
-      rheight="38"
-      rwidth="38"
-      lheight="42"
-      lwidth="42"
+      rheight="48"
+      rwidth="48"
+      lheight="52"
+      lwidth="52"
       bindtap="navigateToFeedback"
       class="d"
     />

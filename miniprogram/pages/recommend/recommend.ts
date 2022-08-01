@@ -106,7 +106,7 @@ Page({
       console.log('set box error', error)
     } finally {
       this.setData({
-        loading: false
+        loading: false,
       })
     }
   },
