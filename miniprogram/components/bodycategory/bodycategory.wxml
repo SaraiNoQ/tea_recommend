@@ -9,6 +9,7 @@
     <van-tag
       type="success"
       mark
+      color="#00b26a"
       size="large"
       custom-class="tag-l"
     >{{tag}}</van-tag>
@@ -16,7 +17,7 @@
   <view slot="footer">
     <van-button
       size="small"
-      type="info"
+      color="#E25C0D"
       bind:tap="navigateToDetail"
       custom-class="button-b"
     >详情</van-button>

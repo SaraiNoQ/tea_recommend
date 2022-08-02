@@ -1,13 +1,13 @@
 <!--components/userinfocell/userinfocell.wxml-->
 <view class="field">
   <view class="q-title">
-    <text style="color: red;display: inline;">*</text>
+    <text style="color: #E25C0D;display: inline;">*</text>
     <text>{{ idx }}. {{ title }}</text>
   </view>
   <view class="q-content">
     <van-radio-group value="{{ radio }}" bind:change="onChange">
       <view class="q-item" wx:for="{{ data }}" wx:key="index">
-        <van-radio name="{{item.id}}">{{item.description}}</van-radio>
+        <van-radio name="{{item.id}}" checked-color="#E25C0D">{{item.description}}</van-radio>
       </view>
       <!-- <view class="q-item">
         <van-radio name="2">很少（有一点）</van-radio>

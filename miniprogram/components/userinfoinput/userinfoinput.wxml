@@ -1,7 +1,7 @@
 <!--components/userinfoinput/userinfoinput.wxml-->
 <view class="field">
   <view class="q-title" wx:if="{{!optinal}}">
-    <text style="color: red;display: inline;">*</text>
+    <text style="color: #E25C0D;display: inline;">*</text>
     <text>{{ title }}</text>
   </view>
   <view class="q-content">

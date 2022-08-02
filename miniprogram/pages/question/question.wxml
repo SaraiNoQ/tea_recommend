@@ -34,7 +34,7 @@
   </block>
 
   <view class="submit">
-    <van-button type="info" class="button" block bindtap="submitQuestion">提交</van-button>
+    <van-button color="#E25C0D" class="button" block bindtap="submitQuestion">提交</van-button>
   </view>
 
   <van-toast id="van-toast" />

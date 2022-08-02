@@ -29,7 +29,7 @@
         <text class="title">2.相关体质</text>
         <van-tag
           wx:if="{{relArr.length > 0}}"
-          type="primary"
+          color="#E25C0D"
           size="large"
           wx:for="{{relArr}}"
           wx:for-index="index"

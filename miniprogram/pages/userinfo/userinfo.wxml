@@ -16,7 +16,7 @@
     <userinput value="{{lifeIn}}" title="8.您的现居地？" message="请填写您的现居地" bind:submitInputValue="getLifeValue" />
     <userinput value="{{favoriteTea}}" title="9.您喜欢的茶叶？" message="绿茶、红茶等" bind:submitInputValue="getFavoriteValue" />
     <view class="submit">
-      <van-button type="info" class="button" custom-style="button-sys" block bind:tap="submitUserInfo">提交</van-button>
+      <van-button color="#E25C0D" class="button" custom-style="button-sys" block bind:tap="submitUserInfo">提交</van-button>
     </view>
     <van-toast id="van-toast" />
   </block>

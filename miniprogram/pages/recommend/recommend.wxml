@@ -52,7 +52,7 @@
     </view>
     <view class="button">
         <van-button
-          type="primary"
+          color="#00b26a"
           block
           custom-class="button-body"
           bindtap="clickToBody"
@@ -60,7 +60,7 @@
     </view>
     <view class="button">
         <van-button
-          type="info"
+          color="#E25C0D"
           block
           custom-class="button-body button-two"
           bindtap="clickToIndex"

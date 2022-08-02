@@ -37,8 +37,8 @@
 
   <view class="button">
     <van-button
-      type="primary"
-      custom-style="width: 300rpx; font-size: 32rpx"
+      color="#00b26a"
+      custom-style="width: 50%; font-size: 32rpx"
       custom-class="button-submit"
       bindtap="submitFeedback"
     >提交</van-button>
