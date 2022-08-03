@@ -16,11 +16,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    if (wx.getStorageSync('token') === '') {
-      wx.redirectTo({
-        url: '/pages/login/login'
-      })
-    }
+    // if (wx.getStorageSync('token') === '') {
+    //   wx.redirectTo({
+    //     url: '/pages/login/login'
+    //   })
+    // }
     this.setData({
       userAvatar: wx.getStorageSync('userAvatar'),
       userName: wx.getStorageSync('userName')

@@ -4,7 +4,7 @@
   <text class="intro">{{color}}</text>
   <!-- <image src="{{imgurl}}" mode="scaleToFill" class="svgimg"></image> -->
   <view class="image-container">
-    <van-image width="{{lwidth}}" height="{{lheight}}" src="{{imgurl}}" />
-    <van-image width="{{rwidth}}" height="{{rheight}}" src="{{other}}" style="{{style}}"/>
+    <van-image width="{{lwidth}}" height="{{lheight}}" src="{{imgurl}}" class="icon" />
+    <van-image width="{{rwidth}}" height="{{rheight}}" src="{{other}}" style="{{style}}" wx:if="{{other !== ''}}" />
   </view>
 </view>

@@ -9,7 +9,7 @@
     <van-tag
       type="success"
       mark
-      color="#00b26a"
+      color="#A2B4BE"
       size="large"
       custom-class="tag-l"
     >{{tag}}</van-tag>

@@ -16,7 +16,7 @@
     "noUnusedParameters": true,
     "strict": true,
     "strictPropertyInitialization": true,
-    "lib": ["ES2020", "ES6"],
+    "lib": ["ES2020", "ES6", "ESNext"],
     "typeRoots": [
       "./typings"
     ],

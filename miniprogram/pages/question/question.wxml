@@ -1,45 +1,45 @@
 <!--pages/question/question.wxml-->
 <view class="question-container">
 
-<block wx:if="{{!loading}}">
-  <view class="user-head">
-    <text class="head">填写问卷调查</text>
-    <text class="content">请按照您自身情况完成以下的调查问卷：</text>
-  </view>
+  <block wx:if="{{!loading}}">
+    <view class="user-head">
+      <text class="head">填写问卷调查</text>
+      <text class="content">尊敬的朋友，您好！通过这份中医体质与茶疗自测问卷，您将免费获得自身中医体质状态的评估结果以及与您体质适配的茶品推荐，祝愿茶成为您生命中不可或缺的部分。
+      老迈思想茶携手与您走进茶与人生！祝君安康！</text>
+    </view>
 
-  <block>
-    <!-- <userinfo title="1.您精力充沛吗？(指精神头足，乐于做事)" bind:submitValue="getValue" />
-    <userinfo title="9.您感到身体超重不轻松吗？(感觉身体沉重)[BMI指数=体重(kg)/身高2(m)]" data="{{['BMI<24', '24<BMI<25', '25<BMI<26', '26<BMI<28', 'BMI>28']}}" /> -->
-    <view
-      wx:for="{{questions}}"
-      wx:for-index="index"
-      wx:for-item="item"
-      wx:key="index"
-     >
-      <userinfo
-        wx:if="{{item.type === 0}}"
-        title="{{item.description}}"
-        data="{{item.options}}"
-        idx="{{item.id}}"
-        type="{{item.type}}"
-        bind:submitValue="getValue"
-        radio="{{item.optionsId || ''}}"
-      />
-      <userinput
-        wx:elif="{{item.type === 3}}"
-        title="{{item.description}}"
-      />
-     </view>
-    
+    <view class="body-style">
+      <!-- <userinfo title="1.您精力充沛吗？(指精神头足，乐于做事)" bind:submitValue="getValue" />
+      <userinfo title="9.您感到身体超重不轻松吗？(感觉身体沉重)[BMI指数=体重(kg)/身高2(m)]" data="{{['BMI<24', '24<BMI<25', '25<BMI<26', '26<BMI<28', 'BMI>28']}}" /> -->
+      <view
+        wx:for="{{questions}}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="index"
+      >
+        <userinfo
+          wx:if="{{item.type === 0}}"
+          title="{{item.description}}"
+          data="{{item.options}}"
+          idx="{{item.id}}"
+          type="{{item.type}}"
+          bind:submitValue="getValue"
+          radio="{{item.optionsId || ''}}"
+        />
+        <userinput
+          wx:elif="{{item.type === 3}}"
+          title="{{item.description}}"
+        />
+      </view>
+    </view>
+
+    <view class="submit">
+      <van-button color="#E25C0D" class="button" block bindtap="submitQuestion">提交</van-button>
+    </view>
+
+    <van-toast id="van-toast" />
   </block>
 
-  <view class="submit">
-    <van-button color="#E25C0D" class="button" block bindtap="submitQuestion">提交</van-button>
-  </view>
-
-  <van-toast id="van-toast" />
-</block>
-
-<van-toast id="my-toast" wx:if="{{loading}}"/>
-<van-toast id="submit-toast" wx:if="{{submitLoading}}"/>
+  <van-toast id="my-toast" wx:if="{{loading}}"/>
+  <van-toast id="submit-toast" wx:if="{{submitLoading}}"/>
 </view>

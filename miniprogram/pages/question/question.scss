@@ -1,14 +1,19 @@
 /* pages/question/question.wxss */
+.question-container {
+  background-color: rgb(251, 249, 250);
+}
+
 .user-head {
-  margin: 20rpx 20rpx;
+  padding: 20rpx 20rpx;
   padding-bottom: 40rpx;
   border-bottom: 1px dashed #ccc;
+  background-color: rgb(162, 180, 190);
 
   .head {
     margin: 40rpx 0;
     display: inline-block;
-    font-size: 52rpx;
-    color: #E25C0D;
+    font-size: 54rpx;
+    color: rgb(254, 251, 250);
     width: 100%;
     text-align: center;
     font-family: "宋体",sans-serif;
@@ -18,10 +23,13 @@
   .content {
     display: inline-block;
     margin: 10rpx 10rpx;
-    font-size: 38rpx;
-    line-height: 48rpx;
+    font-size: 32rpx;
+    line-height: 52rpx;
+    color: rgb(254, 251, 250);
     font-family: "PingFang SC", "helvetica neue", arial, 阿里巴巴普惠体, "思源黑体 CN", "microsoft yahei ui", "microsoft yahei", "sans-serif";
-    // text-indent: 1.5em;
+    text-indent: 1.5em;
+    white-space: pre-wrap;
+    text-align: justify;
   }
 }
 
@@ -40,4 +48,9 @@
 .van-button__text {
   font-size: 32rpx;
   letter-spacing: 0.25em;
+}
+
+.body-style {
+  margin: 20rpx 40rpx 0 40rpx;
+  background-color: rgb(255, 255, 255);
 }

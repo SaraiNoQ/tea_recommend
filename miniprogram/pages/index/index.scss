@@ -1,25 +1,26 @@
 /**index.wxss**/
 .container1 {
   min-height: 100vh;
-  background-color: rgb(247,248,250);
-  padding-top: 20rpx;
+  background-color: rgb(238,238,238);
+  // padding-top: 20rpx;
   overflow-x: hidden;
 
   .message {
-    margin: 25rpx 20rpx 0 20rpx;
+    margin: 0rpx 0rpx 0 0rpx;
     border-radius: 6rpx;
 
     .notice {
-      height: 110rpx;
+      height: 85rpx;
       font-size: 36rpx;
     }
   }
 
   .project-info {
     height: 535rpx;
-    margin: 0rpx 20rpx 20rpx 20rpx;
+    margin: -2rpx 0rpx 0rpx 0rpx;
     box-shadow: 0 8rpx 10px rgba(0, 0, 0, 0.2);
-    border-radius: 12rpx;
+    background-color: rgb(223, 93, 15) !important;
+    text-align: center;
 
     .swiper-container {
       height: 100%;
@@ -28,7 +29,17 @@
         margin-top: -25rpx;
         width: 100%;
         height: 100%;
-        border-radius: 12rpx;
+        // border-radius: 12rpx;
+      }
+
+      .swipper-image1 {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swipper-image2 {
+        width: 100%;
+        height: 100%;
       }
 
       .swiper-item {
@@ -42,14 +53,14 @@
     }
   }
   .operation {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: 16% 16% 16% 16% 16% 16%;
-    grid-template-rows: 50% 50%;
-    margin: 15rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    // display: grid;
+    // grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    // grid-template-rows: 100%;
+    margin: 30rpx 10rpx;
 
     .svgimg {
       width: 40%;
@@ -68,21 +79,21 @@
       margin: 0 0 20rpx 0;
     }
 
-    .a {
-      grid-area: 1/1/2/5;
-    }
+    // .a {
+    //   grid-area: 1/1/2/5;
+    // }
 
-    .b {
-      grid-area: 1/5/2/7;
-    }
+    // .b {
+    //   grid-area: 1/1/2/3;
+    // }
 
-    .c {
-      grid-area: 2/1/3/4;
-    }
+    // .c {
+    //   grid-area: 1/3/2/5;
+    // }
 
-    .d {
-      grid-area: 2/4/3/7;
-    }
+    // .d {
+    //   grid-area: 1/5/2/7;
+    // }
 
     .op {
       width: 40%;
@@ -106,13 +117,12 @@
       background-color: tan;
     }
   }
-
-  .special {
-    margin-left: 0rpx !important;
-    margin-right: 10rpx !important;
-  }
 }
 
 #right {
   width: 150px;
+}
+
+.index-button {
+  margin: 20rpx 4vw 0 4vw;
 }

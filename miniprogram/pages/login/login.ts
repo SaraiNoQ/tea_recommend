@@ -119,7 +119,7 @@ Page({
                   if (getCurrentPages().length === 1) {
                     // 重启动个人中心
                     wx.reLaunch({
-                      url: '/pages/list/list'
+                      url: '/pages/index/index'
                     })
                   } else { // token过期，在功能页被拦截
                     wx.navigateBack({

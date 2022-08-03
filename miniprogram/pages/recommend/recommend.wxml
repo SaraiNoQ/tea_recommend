@@ -2,29 +2,58 @@
 <view class="recommend-container">
   <van-toast id="van-toast" wx:if="{{loading}}" />
   <block wx:else>
+    <view class="output-header">
+      <text class="output-head">问卷结果</text>
+      <text class="output-text">您的问卷已提交，感谢您的参与！根据中医体质分析您目前体质是最上方显示的体质类型，若还出现倾向体质则提示您的体质有该方向倾向性，需要注意预防。体质下方为您目前适合的茶饮推荐。</text>
+    </view>
+
     <view class="content">
-      <text class="finish">您的答卷已经提交，感谢您的参与！</text>
-      <text class="f1">您可点击某项体质类型，查看该体质详细信息</text>
-      <text class="head">您的体质类型为：</text>
-      <view wx:if="{{recommendBody.length === 0}}">
-        <text class="re-text">无相关体质</text>
+      <!-- <text class="finish">您的答卷已经提交，感谢您的参与！</text>
+      <text class="f1">您可点击某项体质类型，查看该体质详细信息</text> -->
+      <view class="content-head">
+        <text>您的体质类型为：\n</text>
+        <text style="color: rgb(252, 66, 67);" wx:if="{{recommendBody.length === 0}}">无相关体质\n</text>
+        <text style="color: rgb(252, 66, 67);" wx:else>{{firstItem.name}}</text>
       </view>
-      <view class="text-flex" wx:else>
-        <view
-          class="re-text"
-          wx:for="{{recommendBody}}"
-          wx:for-index="index"
-          wx:for-item="item"
-          wx:key="index"
-          data-item="{{item}}"
-          bindtap="clickToTea"
-        >
-          <text class="pb-5">{{item.name}}</text>
-          <recbox
-            class="box-rec"
-            recommend="{{item.data}}"
-            display="{{item.display || false}}"
-          />
+      <view class="content-item">
+        <view class="first">
+          <view class="special-rec">{{firstItem.data.drinkingAdvice || '暂无饮茶建议'}}</view>
+          <view class="daily-rec">
+            <view class="daily">每日推荐</view>
+            <view class="d-rec">
+              <text class="d-rec-t">清晨：{{firstItem.data.morningTea}}\n</text>
+              <text class="d-rec-t">白昼：{{firstItem.data.afternoonTea}}\n</text>
+              <text class="d-rec-t">晚间：{{firstItem.data.evenTea}}</text>
+            </view>
+          </view>
+          <view class="season-rec">
+            <view class="season">四季推荐</view>
+            <view class="s-rec">
+              <text class="s-rec-t">春季：{{firstItem.data.springTea}}\n</text>
+              <text class="s-rec-t">夏季：{{firstItem.data.summerTea}}\n</text>
+              <text class="s-rec-t">秋季：{{firstItem.data.autumnTea}}\n</text>
+              <text class="s-rec-t">冬季：{{firstItem.data.winterTea}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <view class="text-flex">
+          <view
+            class="re-text"
+            wx:for="{{recommendBody}}"
+            wx:for-index="index"
+            wx:for-item="item"
+            wx:key="index"
+            data-item="{{item}}"
+            bindtap="clickToTea"
+          >
+            <text class="pb-5">{{item.name}}</text>
+            <recbox
+              class="box-rec"
+              recommend="{{item.data}}"
+              display="{{item.display || false}}"
+            />
+          </view>
         </view>
       </view>
       <text class="head">您的倾向体质为：</text>
@@ -50,21 +79,23 @@
         </view>
       </view>
     </view>
-    <view class="button">
+    <view class="btn-flex">
+      <view class="button">
         <van-button
-          color="#00b26a"
+          color="#EAF2FC"
           block
-          custom-class="button-body"
+          custom-class="button-body button-two"
           bindtap="clickToBody"
-        >体质查询</van-button>
-    </view>
-    <view class="button">
+        >体质详情</van-button>
+      </view>
+      <view class="button">
         <van-button
           color="#E25C0D"
           block
-          custom-class="button-body button-two"
+          custom-class="button-body"
           bindtap="clickToIndex"
         >返回首页</van-button>
+      </view>
     </view>
   </block>
 </view>

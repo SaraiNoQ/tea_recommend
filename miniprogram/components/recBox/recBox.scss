@@ -1,11 +1,12 @@
 /* components/recBox/recBox.wxss */
 .box-d {
-  background-color: rgb(247, 248, 250);
-  font-size: 32rpx;
+  background-color: rgb(242, 242, 250);
+  font-size: 30rpx;
   font-weight: bold;
   text-align: left;
-  border-radius: 10rpx;
-  // box-shadow: 10rpx 10rpx 10rpx rgba(0,0,0,.1);
+  border-radius: 32rpx;
+  box-shadow: 0rpx 6rpx 8rpx rgba(0,0,0,.2);
+  padding-left: 10rpx;
 
   .item {
     font-weight: normal;
@@ -15,8 +16,10 @@
 .box-c {
   width: 92%;
   margin-left: 0rpx;
-  padding: 0rpx 0 10rpx 10rpx;
+  padding: 0rpx 0 10rpx 0rpx;
   position: relative;
+  color: rgb(123, 135, 137) !important;
+  letter-spacing: 0.03em;
 }
 
 .box-c::before {  //这里就是小三角了

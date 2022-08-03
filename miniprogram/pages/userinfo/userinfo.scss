@@ -1,19 +1,20 @@
 /* pages/userinfo/userinfo.wxss */
 .user-container {
-  background-color: rgb(247,248,250);
+  background-color: rgb(251, 249, 250);
 }
 
 .user-head {
   padding-top: 20rpx;
-  margin: 0rpx 20rpx 0 20rpx;
+  padding: 0rpx 20rpx 0 20rpx;
   padding-bottom: 40rpx;
   border-bottom: 1px dashed #ccc;
+  background-color: rgb(162, 180, 190);
 
   .head {
     margin: 40rpx 0;
     display: inline-block;
     font-size: 54rpx;
-    color: #E25C0D;
+    color: rgb(254, 251, 250);
     width: 100%;
     text-align: center;
     font-family: "宋体",sans-serif;
@@ -23,9 +24,10 @@
   .content {
     display: inline-block;
     margin: 10rpx 20rpx;
-    font-size: 38rpx;
+    font-size: 32rpx;
     text-align: justify;
-    line-height: 48rpx;
+    line-height: 52rpx;
+    color: rgb(254, 251, 250);
     font-family: "PingFang SC", "helvetica neue", arial, 阿里巴巴普惠体, "思源黑体 CN", "microsoft yahei ui", "microsoft yahei", "sans-serif";
     text-indent: 1.5em;
   }
@@ -66,4 +68,9 @@
 .van-button__text {
   font-size: 32rpx;
   letter-spacing: 0.25em;
+}
+
+.body-style {
+  margin: 20rpx 40rpx 0 40rpx;
+  background-color: rgb(255, 255, 255);
 }

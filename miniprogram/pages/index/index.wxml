@@ -6,36 +6,54 @@
       class="swiper-container"
       indicator-dots="true"
       indicator-active-color="rgb(223,93,12)"
-      autoplay="true"
+      
       current="0"
-      interval="5000"
+      interval="5500"
       circular="true"
     >
       <swiper-item>
         <image
           src="http://82.157.232.71/images/logo-p.png"
-          class="swipper-image"
+          class="swipper-image2"
           mode="scaleToFill"
         ></image>
       </swiper-item>
       <swiper-item>
+        <image
+          src="http://82.157.232.71/images/LOGO2.jpg"
+          class="swipper-image1"
+          mode="heightFix"
+        ></image>
+      </swiper-item>
+      
+      <!-- <swiper-item>
         <view class="swiper-item">尊敬的朋友，您好！通过这份中医体质与茶疗自测问卷，您将免费获得自身中医体质状态的评估结果以及与您体质适配的茶品推荐，祝愿茶成为您生命中不可或缺的部分。
     老迈思想茶携手与您走进茶与人生！祝君安康！</view>
-      </swiper-item>
+      </swiper-item> -->
     </swiper>
   </view>
 
   <view class="message">
     <van-notice-bar
       left-icon="volume-o"
+      color="#000"
+      background="#A2B4BE"
       text="{{message}}"
       speed="50"
       custom-class="notice"
     />
   </view>
 
+  <view class="index-button">
+    <indexbutton
+      imgurl="http://82.157.232.71/images/wx/people.png"
+      detail="填写本问卷将免费获得体质与茶饮专属推荐"
+      info="茶与体质问卷"
+      bindtap="navigateToUser"
+    />
+  </view>
   <view class="operation">
-    <buttonitem
+    <!-- <buttonitem
       color="体质测试及健康饮茶建议"
       imgurl="http://82.157.232.71/images/table-p.png"
       other="http://82.157.232.71/images/recom-l.png"
@@ -48,47 +66,42 @@
       style="padding-top: 5rpx"
       bindtap="navigateToUser"
       class="a"
-    />
+    /> -->
     <buttonitem
-      class="special"
-      color="所有填表记录"
-      imgurl="http://82.157.232.71/images/table-p.png"
-      other="http://82.157.232.71/images/history-s.png"
+      color="查询所有填写记录"
+      imgurl="http://82.157.232.71/images/wx/info.png"
       info="历史记录"
       op="op1"
-      rheight="44"
-      rwidth="44"
-      lheight="52"
-      lwidth="52"
+      rheight="50"
+      rwidth="50"
+      lheight="44"
+      lwidth="44"
       bindtap="navigateToHistory"
-      style="padding-top: 6rpx;"
       class="b"
     />
     <buttonitem
-      color="体质介绍和茶叶信息"
-      other="http://82.157.232.71/images/recom-r.png"
-      imgurl="http://82.157.232.71/images/tea-p.png"
+      color="中医体质与茶知识"
+      imgurl="http://82.157.232.71/images/wx/tea.png"
       info="相关介绍"
-      op="op3"
+      op="op1"
       style="padding-left: 20rpx;"
-      lheight="52"
-      lwidth="52"
-      rheight="50"
-      rwidth="50"
+      lheight="44"
+      lwidth="44"
+      rheight="44"
+      rwidth="44"
       bindtap="navigateToCheck"
       class="c"
     />
     <buttonitem
-      color="使用遇到的问题"
-      imgurl="http://82.157.232.71/images/feedback-l.png"
-      other="http://82.157.232.71/images/feedback-s.png"
+      color="反馈使用中的问题"
+      imgurl="http://82.157.232.71/images/wx/feedback.png"
       info="问题反馈"
-      op="op3"
+      op="op1"
       style="padding-left: 14rpx;"
-      rheight="48"
-      rwidth="48"
-      lheight="52"
-      lwidth="52"
+      rheight="44"
+      rwidth="44"
+      lheight="44"
+      lwidth="44"
       bindtap="navigateToFeedback"
       class="d"
     />

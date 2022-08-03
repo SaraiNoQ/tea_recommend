@@ -1,0 +1,15 @@
+<!--components/indexbutton/indexbutton.wxml-->
+<view class="op">
+  <view class="btn-flex">
+    <view class="image-container">
+      <image
+        src="{{imgurl}}"
+        class="image-item"  
+      />
+    </view>
+    <view class="right-text">
+      <text class="text info-text">{{info}}</text>
+      <text class="intro">{{detail}}</text>
+    </view>
+  </view>
+</view>

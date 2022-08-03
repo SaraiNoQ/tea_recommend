@@ -7,6 +7,11 @@ Page({
     message: '本项目旨在通过问卷的形式让您了解自己的身体状况，并推荐一套适合您的健康饮茶方案！'
   },
   async onLoad() {
+    if (wx.getStorageSync('token') === '') {
+      wx.redirectTo({
+        url: '/pages/login/login'
+      })
+    }
   },
   async navigateToUser() {
     // 如果已经存在该用户的个人信息，则直接填表

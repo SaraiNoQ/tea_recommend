@@ -16,23 +16,24 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#00b26a",
+    "navigationBarBackgroundColor": "#A2B4BE",
     "navigationBarTitleText": "老迈思想茶",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "tabBar": {
     "borderStyle": "black",
+    "selectedColor": "#505050",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
       "iconPath": "images/home_white.png",
-      "selectedIconPath": "images/home_green.png"
+      "selectedIconPath": "images/index2.png"
     },{
       "pagePath": "pages/list/list",
       "text": "用户",
       "iconPath": "images/user_white.png",
-      "selectedIconPath": "images/user_green.png"
+      "selectedIconPath": "images/mine.png"
     }]
   },
   "sitemapLocation": "sitemap.json",

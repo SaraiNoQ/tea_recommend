@@ -2,7 +2,7 @@
 <view class="box-c">
   <view class="box-d {{display ? 'slide-out-top' : 'fade-in-top' }}">
     <view>
-      <view class="head">饮茶建议</view>
+      <view class="head">点击饮茶建议</view>
       <view class="daily-tea">
         <view class="item">{{recommend.drinkingAdvice}}</view>
       </view>

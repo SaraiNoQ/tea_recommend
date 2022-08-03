@@ -20,6 +20,7 @@ Page({
     recommendBody: [],
     relativeBody: [],
     loading: true,
+    firstItem: {}
   },
 
   /**
@@ -105,7 +106,15 @@ Page({
     } catch (error) {
       console.log('set box error', error)
     } finally {
+      const data: {data: Record<string, string>} = this.data.recommendBody[0]
+      for (let item in data.data) {
+        data.data[item] = data.data[item].replaceAll('\n', '')
+      }
+      console.log(this.data.firstItem, this.data.relativeBody)
       this.setData({
+        firstItem: this.data.recommendBody[0],
+        recommendBody: this.data.recommendBody.length >=3 ? [this.data.recommendBody[1], this.data.recommendBody[2]] : this.data.recommendBody,
+        relativeBody: this.data.relativeBody.length >=2 ? [this.data.relativeBody[0], this.data.relativeBody[1]] : this.data.relativeBody,
         loading: false,
       })
     }

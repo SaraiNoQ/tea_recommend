@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "buttonitem": "../../components/buttonitem/buttonitem"
+    "buttonitem": "../../components/buttonitem/buttonitem",
+    "indexbutton": "../../components/indexbutton/indexbutton"
   },
-  "navigationBarBackgroundColor": "#00b26a"
+  "navigationBarBackgroundColor": "#A2B4BE"
 }
